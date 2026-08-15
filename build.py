@@ -3,30 +3,6 @@ import re
 from urllib.parse import quote
 from data import ELECTRONIC, SOUL_JAZZ, VERIFIED, NOTE
 
-ELEC_CATS = [
-    ('Techno', ['techno', 'acid']),
-    ('House', ['house']),
-    ('Garage / Bass', ['garage', 'bass', 'grime', 'gqom', 'ukg']),
-    ('D&B / Jungle', ['drum & bass', 'jungle', 'halftime']),
-    ('Dub / Dubstep', ['dub', 'steppers', 'reggae']),
-    ('Electro / Broken Beat', ['broken beat', 'electro', 'experimental electronic', 'electronic']),
-    ('Disco / Boogie', ['disco', 'boogie']),
-    ('Eclectic / Global', ['eclectic', 'global', 'afro', 'balearic', 'brazilian', 'nu-jazz', 'north african', 'dancehall']),
-]
-
-SJ_CATS = [
-    ('Jazz', ['jazz', "warriors showcase", 'classical']),
-    ('Soul / R&B', ['soul', 'r&b']),
-    ('Hip-hop / Rap', ['hip-hop', 'rap']),
-    ('Afrobeat / Global', ['global', 'brazilian', 'tanzanian', 'orchestral']),
-    ('Live band / Fusion', ['funk', 'fusion', 'live', 'alt', 'pop', 'experimental', 'tribute']),
-]
-
-def categorize(tag, catmap):
-    t = tag.lower()
-    cats = [label for label, kws in catmap if any(kw in t for kw in kws)]
-    return cats or ['Other']
-
 def esc(s):
     """Escape for both text nodes and double-quoted attributes."""
     return html.escape(str(s), quote=True)
@@ -45,8 +21,7 @@ def mc_search(name):
 DAYS = ['Thu', 'Fri', 'Sat', 'Sun']
 DAY_NAMES = {'Thu': 'Thu 20', 'Fri': 'Fri 21', 'Sat': 'Sat 22', 'Sun': 'Sun 23'}
 
-def set_html(name, tag, day, time, stage, catmap):
-    cats = categorize(tag, catmap)
+def set_html(name, tag, day, time, stage):
     verified = VERIFIED.get(re.sub(r'\s*\(.*?\)', '', name).strip())
     start, _, end = time.partition('-')
 
@@ -59,7 +34,7 @@ def set_html(name, tag, day, time, stage, catmap):
     links += (f'<a class="btn" href="{esc(mc_search(name))}" target="_blank" rel="noopener">'
               f'Search Mixcloud</a>')
 
-    return f'''<article class="set" data-day="{esc(day)}" data-cat="{esc('|'.join(cats))}" data-name="{esc(name.lower())}">
+    return f'''<article class="set" data-day="{esc(day)}" data-name="{esc(name.lower())}">
       <div class="clock">
         <span class="clock-start">{esc(start)}</span>
         <span class="clock-end">{esc(end)}</span>
@@ -74,12 +49,6 @@ def set_html(name, tag, day, time, stage, catmap):
         <div class="set-links">{links}</div>
       </div>
     </article>'''
-
-def chips_html(catmap):
-    return ''.join(
-        f'<button type="button" class="chip" data-filter="{esc(label)}" aria-pressed="false">{esc(label)}</button>'
-        for label, _ in catmap
-    )
 
 def day_chips_html():
     return ''.join(
@@ -459,6 +428,9 @@ nav.pagenav a.active {
   padding: 15px 0;
   border-bottom: 1px solid var(--rule);
 }
+/* Required: a class-based display beats the browser's own [hidden] rule, so
+   without this the filters compute correctly but nothing ever disappears. */
+.set[hidden] { display: none; }
 
 /* The clock rail is the structure: start over end, monospaced so the
    columns line up down the page like a printed schedule. */
@@ -590,20 +562,16 @@ JS = '''
   var clearBtn = document.getElementById('clearFilters');
   var emptyMsg = document.getElementById('emptyMsg');
   var dayBtns = Array.prototype.slice.call(document.querySelectorAll('[data-day-filter]'));
-  var catBtns = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
 
   var activeDay = null;
-  var activeCats = [];
   var term = '';
 
   function apply() {
     var visible = 0;
     sets.forEach(function (el) {
-      var cats = el.getAttribute('data-cat').split('|');
       var dayOk = !activeDay || el.getAttribute('data-day') === activeDay;
-      var catOk = !activeCats.length || cats.some(function (c) { return activeCats.indexOf(c) !== -1; });
       var nameOk = !term || el.getAttribute('data-name').indexOf(term) !== -1;
-      var show = dayOk && catOk && nameOk;
+      var show = dayOk && nameOk;
       el.hidden = !show;
       if (show) visible++;
     });
@@ -627,16 +595,6 @@ JS = '''
     });
   });
 
-  catBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var f = btn.getAttribute('data-filter');
-      var i = activeCats.indexOf(f);
-      if (i !== -1) { activeCats.splice(i, 1); btn.setAttribute('aria-pressed', 'false'); }
-      else { activeCats.push(f); btn.setAttribute('aria-pressed', 'true'); }
-      apply();
-    });
-  });
-
   search.addEventListener('input', function () {
     term = search.value.trim().toLowerCase();
     apply();
@@ -644,10 +602,9 @@ JS = '''
 
   clearBtn.addEventListener('click', function () {
     activeDay = null;
-    activeCats = [];
     term = '';
     search.value = '';
-    dayBtns.concat(catBtns).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+    dayBtns.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
     apply();
     search.focus();
   });
@@ -688,8 +645,8 @@ def head(title, description):
 {FONTS}
 <link rel="stylesheet" href="style.css">'''
 
-def build_page(title, standfirst, items, catmap, active_nav):
-    rows = '\n'.join(set_html(*it, catmap) for it in items)
+def build_page(title, standfirst, items, active_nav):
+    rows = '\n'.join(set_html(*it) for it in items)
     desc = f'{standfirst} Every set at We Out Here 2026, with a mix to listen to first.'
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -720,10 +677,6 @@ def build_page(title, standfirst, items, catmap, active_nav):
     <span class="chiplabel">Day</span>
     <div class="chips">{day_chips_html()}</div>
   </div>
-  <div class="chipgroup">
-    <span class="chiplabel">Sound</span>
-    <div class="chips">{chips_html(catmap)}</div>
-  </div>
 
   <div class="tally">
     <span id="tally"></span>
@@ -745,12 +698,12 @@ def build_page(title, standfirst, items, catmap, active_nav):
 elec_page = build_page(
     'Electronic',
     'Dub, dubstep, techno, house, electro, garage and drum &amp; bass, across all four days.',
-    ELECTRONIC, ELEC_CATS, 'elec',
+    ELECTRONIC, 'elec',
 )
 sj_page = build_page(
     'Soul, Jazz &amp; Afrobeat',
     'Live bands, jazz, soul, hip-hop and global sounds: the other half of the bill.',
-    SOUL_JAZZ, SJ_CATS, 'sj',
+    SOUL_JAZZ, 'sj',
 )
 
 index_desc = ('All 142 acts at We Out Here 2026, sorted into electronic and soul/jazz/afrobeat, '

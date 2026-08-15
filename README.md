@@ -11,7 +11,7 @@ The lineup is split into two lists, because in practice you plan around them sep
 - **Electronic** (86 sets): dub and dubstep, techno, house, electro, garage, drum & bass.
 - **Soul, Jazz & Afrobeat** (56 sets): live bands, jazz, soul, hip-hop and global sounds.
 
-Both lists filter by day and by sound, and search by name. Every set shows its time and stage.
+Both lists filter by day and search by name. Every set shows its time, stage and genre.
 Nineteen artists have a specific mix picked out and marked "Play mix"; the rest link to a
 SoundCloud and Mixcloud search so you can dig yourself. The landing page lists all 142 names
 alphabetically, and picking one jumps straight to its set time.

@@ -357,6 +357,9 @@ nav.pagenav a.active {
   padding: 15px 0;
   border-bottom: 1px solid var(--rule);
 }
+/* Required: a class-based display beats the browser's own [hidden] rule, so
+   without this the filters compute correctly but nothing ever disappears. */
+.set[hidden] { display: none; }
 
 /* The clock rail is the structure: start over end, monospaced so the
    columns line up down the page like a printed schedule. */
