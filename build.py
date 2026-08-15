@@ -1,10 +1,74 @@
 import collections
 import html
+import json
+import os
 import re
+import unicodedata
 from urllib.parse import quote
 from data import ELECTRONIC, SOUL_JAZZ, VERIFIED, NOTE
 
 TOTAL = len(ELECTRONIC) + len(SOUL_JAZZ)
+
+# Snapshots of the official timetable and the festival's own artist blurbs.
+# Regenerate with fetch_official.py; build.py itself never touches the network.
+def _load(path, default):
+    try:
+        with open(path, encoding='utf-8') as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        print(f'  note: {path} missing, artist pages will be thinner')
+        return default
+
+OFFICIAL = _load('official_schedule.json', [])
+BIOS = _load('artist_bios.json', {})
+
+STOPWORDS = {'live', 'dj', 'set', 'b2b', 'ft', 'feat', 'featuring', 'presents', 'with',
+             'the', 'and', 'a', 'vs', 'x'}
+
+def name_tokens(s):
+    s = unicodedata.normalize('NFKD', s)
+    s = ''.join(c for c in s if not unicodedata.combining(c)).lower()
+    s = re.sub(r'\(.*?\)', ' ', s)
+    return {t for t in re.split(r'[^a-z0-9]+', s) if len(t) > 1 and t not in STOPWORDS}
+
+def slug(name):
+    s = unicodedata.normalize('NFKD', name)
+    s = ''.join(c for c in s if not unicodedata.combining(c)).lower()
+    s = re.sub(r'[^a-z0-9]+', '-', s).strip('-')
+    return s or 'artist'
+
+def bio_for(name):
+    """The festival's blurb, matched on name tokens rather than exact string."""
+    want = name_tokens(name)
+    if not want:
+        return None
+    for official_name, text in BIOS.items():
+        if name_tokens(official_name) == want:
+            return text
+    for official_name, text in BIOS.items():
+        if want and want <= name_tokens(official_name):
+            return text
+    return None
+
+def official_sets_for(name, day=None, time=None, stage=None):
+    """Every official set this artist appears in, b2b billings included.
+
+    Name tokens find the extra sets, but they miss billings that share no word
+    with ours ("V.I.V.E.K" is all single letters; Jazzanova's "In Between" show
+    is billed plain). Our own slot is known-good because verify.py checks it on
+    day plus stage plus start, so add that back in regardless.
+    """
+    want = name_tokens(name)
+    hits = []
+    if want and len(''.join(sorted(want))) >= 3:
+        hits = [r for r in OFFICIAL if want <= name_tokens(r['artist'])]
+    if day and time and stage:
+        start = time.partition('-')[0]
+        ours = next((r for r in OFFICIAL if r['day'] == day and r['stage'] == stage
+                     and r['start'] == start), None)
+        if ours is not None and ours not in hits:
+            hits.append(ours)
+    return sorted(hits, key=lambda r: (DAY_ORDER.get(r['day'], 9), start_minutes(r['start'])))
 
 ELEC_CATS = [
     ('Techno', ['techno', 'acid']),
@@ -88,7 +152,7 @@ def set_html(name, tag, day, time, stage, catmap):
         <span class="clock-end">{esc(end)}</span>
       </div>
       <div class="set-main">
-        <h3 class="set-name">{esc(name)}</h3>
+        <h3 class="set-name"><a href="artists/{slug(name)}.html">{esc(name)}</a></h3>
         <p class="set-where">
           <span class="where-day">{esc(DAY_NAMES[day])}</span>
           <span class="where-tag">{esc(tag)}</span>
@@ -120,7 +184,7 @@ def day_chips_html():
     )
 
 def wall_html():
-    """Every name on the bill, alphabetical, each deep-linking to its own filtered row."""
+    """Every name on the bill, alphabetical, each linking to its own artist page."""
     seen = {}
     for items, page in ((ELECTRONIC, 'electronic.html'), (SOUL_JAZZ, 'soul-jazz-afro.html')):
         for name, *_ in items:
@@ -128,7 +192,7 @@ def wall_html():
     names = sorted(seen, key=lambda n: n.lower())
     # Joined on newlines so the browser has somewhere to break the line.
     return '\n'.join(
-        f'<a class="wall-name" href="{seen[n]}?q={quote(base_name(n))}">{esc(n)}</a>'
+        f'<a class="wall-name" href="artists/{slug(n)}.html">{esc(n)}</a>'
         for n in names
     )
 
@@ -516,9 +580,63 @@ nav.pagenav a.active {
   line-height: 1;
   text-transform: uppercase;
   margin: 0 0 5px;
-  color: var(--ink);
   overflow-wrap: break-word;
 }
+.set-name a {
+  color: var(--ink);
+  text-decoration: none;
+  text-decoration-color: var(--rule);
+}
+.set-name a:hover,
+.set-name a:focus-visible { color: var(--sun-text); text-decoration: underline; }
+
+/* --- one artist: the festival's blurb, and every set they play ----------- */
+
+.artist {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 21em;
+  gap: 44px;
+  margin-top: 4px;
+}
+.bio p { font-size: 15.5px; line-height: 1.62; color: var(--ink-2); margin: 0 0 14px; max-width: 62ch; }
+.bio p:first-child { font-size: 17px; color: var(--ink); }
+.bio-source, .bio-none { font-size: 12px; color: var(--muted); }
+.bio-source a { color: var(--muted); }
+.bio-none { font-size: 14px; }
+
+.side { border-top: 2px solid var(--ink); padding-top: 14px; }
+.side-head {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.side-note { font-size: 11.5px; line-height: 1.5; color: var(--muted); margin: 12px 0 0; }
+
+.gigs { list-style: none; margin: 0; padding: 0; }
+.gig {
+  display: grid;
+  gap: 1px 8px;
+  padding: 10px 0 10px 11px;
+  border-bottom: 1px solid var(--rule);
+  border-left: 2px solid transparent;
+}
+/* the slot carried on the list pages, so both views agree */
+.gig--ours { border-left-color: var(--sun); }
+.gig-when { font-size: 13px; font-weight: 600; color: var(--ink); }
+.gig-time {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+.gig-stage { font-size: 12px; color: var(--muted); }
+.billed { font-size: 11.5px; color: var(--sun-text); }
+
+.artist .set-links { margin-top: 16px; }
 .set-where {
   display: flex;
   flex-wrap: wrap;
@@ -590,6 +708,9 @@ footer.credit {
   .chiplabel { width: auto; padding-top: 0; }
   .wall { font-size: 15px; }
   .note { column-count: 1; }
+  /* in a field the set times matter more than the reading, so lead with them */
+  .artist { grid-template-columns: 1fr; gap: 26px; }
+  .artist .side { order: -1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -797,6 +918,121 @@ def build_page(title, standfirst, items, catmap, active_nav):
 </body>
 </html>'''
 
+DAY_FULL = {'Thu': 'Thursday 20 Aug', 'Fri': 'Friday 21 Aug',
+            'Sat': 'Saturday 22 Aug', 'Sun': 'Sunday 23 Aug'}
+
+def paragraphs(text, target=380):
+    """The blurbs arrive as one block. Break them up so they can be read."""
+    sentences = re.split(r'(?<=[.!?])\s+', text.strip())
+    out, buf = [], ''
+    for s in sentences:
+        buf = f'{buf} {s}'.strip()
+        if len(buf) >= target:
+            out.append(buf)
+            buf = ''
+    if buf:
+        # a short tail reads better joined to the previous paragraph
+        if out and len(buf) < 120:
+            out[-1] += ' ' + buf
+        else:
+            out.append(buf)
+    return out
+
+def artist_page(name, tag, day, time, stage, list_page, list_label):
+    """One page per artist: the festival's own blurb, and every set they play."""
+    bio = bio_for(name)
+    sets = official_sets_for(name, day, time, stage)
+    ours = (day, start_minutes(time.partition('-')[0]))
+
+    if sets:
+        rows = ''
+        for r in sets:
+            listed = (r['day'], start_minutes(r['start'])) == ours
+            billing = '' if name_tokens(r['artist']) == name_tokens(name) else \
+                      f'<span class="billed">billed as {esc(r["artist"])}</span>'
+            rows += f'''<li class="gig{' gig--ours' if listed else ''}">
+          <span class="gig-when">{esc(DAY_FULL.get(r['day'], r['day']))}</span>
+          <span class="gig-time">{esc(r['start'])}&#8211;{esc(r['end'])}</span>
+          <span class="gig-stage">{esc(r['stage'])}</span>
+          {billing}
+        </li>'''
+        plural = 'set' if len(sets) == 1 else 'sets'
+        playing = f'''<h2 class="side-head">{len(sets)} {plural} at the festival</h2>
+        <ol class="gigs">{rows}</ol>'''
+        if len(sets) > 1:
+            playing += ('<p class="side-note">The list pages show one slot each, '
+                        'so the others are only here.</p>')
+    else:
+        start, _, end = time.partition('-')
+        playing = ('<h2 class="side-head">Playing</h2>'
+                   f'<ol class="gigs"><li class="gig gig--ours">'
+                   f'<span class="gig-when">{esc(DAY_FULL.get(day, day))}</span>'
+                   f'<span class="gig-time">{esc(start)}&#8211;{esc(end)}</span>'
+                   f'<span class="gig-stage">{esc(stage)}</span></li></ol>')
+
+    verified = VERIFIED.get(re.sub(r'\s*\(.*?\)', '', name).strip())
+    links = ''
+    if verified:
+        links += (f'<a class="btn btn--play" href="{esc(verified)}" target="_blank" rel="noopener">'
+                  f'<span aria-hidden="true">&#9654;</span> Play mix</a>')
+    links += (f'<a class="btn" href="{esc(sc_search(name))}" target="_blank" rel="noopener">'
+              f'Search SoundCloud</a>')
+    links += (f'<a class="btn" href="{esc(mc_search(name))}" target="_blank" rel="noopener">'
+              f'Search Mixcloud</a>')
+
+    if bio:
+        paras = ''.join(f'<p>{esc(p)}</p>' for p in paragraphs(bio))
+        bio_html = f'''<div class="bio">{paras or f'<p>{esc(bio)}</p>'}
+        <p class="bio-source">Blurb from the festival's own listing at
+        <a href="https://weoutherefestival.com/set-times/" target="_blank" rel="noopener">weoutherefestival.com</a>.</p>
+      </div>'''
+    else:
+        bio_html = ('<div class="bio"><p class="bio-none">The festival has not published a blurb '
+                    'for this one. The search links are the quickest way to hear what they do.</p></div>')
+
+    desc = f'{name} at We Out Here 2026: {tag}, {DAY_FULL.get(day, day)}, {time}, {stage}.'
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{esc(name)} &mdash; We Out Here: Do Your Own Research</title>
+<meta name="description" content="{esc(desc)}">
+<meta property="og:title" content="{esc(name)} &mdash; We Out Here 2026">
+<meta property="og:description" content="{esc(desc)}">
+{FONTS}
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+{THEME_BOOT}
+<div class="wrap">
+  <header class="masthead masthead--inner">
+    <div>
+      <p class="eyebrow">{esc(tag)}</p>
+      <h1 class="wordmark">{esc(name)}</h1>
+    </div>
+    <button type="button" class="toggle-btn" id="toggleTheme">Day / night</button>
+  </header>
+
+  <nav class="pagenav">
+    <a href="../index.html">All {TOTAL} names</a>
+    <a href="../{list_page}">Back to {list_label}</a>
+  </nav>
+
+  <div class="artist">
+    {bio_html}
+    <aside class="side">
+      {playing}
+      <div class="set-links">{links}</div>
+    </aside>
+  </div>
+
+  <footer class="credit">{FOOTER}</footer>
+</div>
+<script src="../app.js"></script>
+</body>
+</html>'''
+
 elec_page = build_page(
     'Electronic',
     'Dub, dubstep, techno, house, electro, garage and drum &amp; bass, across all four days.',
@@ -867,12 +1103,32 @@ index_page = f'''<!DOCTYPE html>
 </body>
 </html>'''
 
+os.makedirs('artists', exist_ok=True)
+written, multi = set(), 0
+for items, list_page, list_label in ((ELECTRONIC, 'electronic.html', 'Electronic'),
+                                     (SOUL_JAZZ, 'soul-jazz-afro.html', 'Soul / Jazz / Afrobeat')):
+    for name, tag, day, time, stage in items:
+        path = os.path.join('artists', f'{slug(name)}.html')
+        if path in written:
+            continue
+        with open(path, 'w') as f:
+            f.write(artist_page(name, tag, day, time, stage, list_page, list_label))
+        written.add(path)
+        if len(official_sets_for(name, day, time, stage)) > 1:
+            multi += 1
+
+# drop pages for artists that are no longer in data.py
+for stale in set(os.listdir('artists')) - {os.path.basename(p) for p in written}:
+    if stale.endswith('.html'):
+        os.remove(os.path.join('artists', stale))
+
 with open('style.css', 'w') as f: f.write(CSS)
 with open('app.js', 'w') as f: f.write(JS)
 with open('electronic.html', 'w') as f: f.write(elec_page)
 with open('soul-jazz-afro.html', 'w') as f: f.write(sj_page)
 with open('index.html', 'w') as f: f.write(index_page)
 
+print(f"Artist pages: {len(written)} ({multi} play more than one set)")
 print(f"Electronic: {len(ELECTRONIC)} sets")
 print(f"Soul/Jazz:  {len(SOUL_JAZZ)} sets")
 print(f"Featured mixes: {len(VERIFIED)}")

@@ -39,14 +39,13 @@ ELECTRONIC = [
     ('A Grime Supreme', 'Grime', 'Sun', '18:30-19:30', "Tomorrow's Warriors Big Top"),
     ('James Alexander Bright (Live)', 'Electronic', 'Thu', '19:30-20:30', 'Brawnswood'),
     ('Credable & MC Stiffler', 'Garage / Bass', 'Fri', '17:30-18:30', 'Lemon Lounge'),
-    ('LOWXND', 'Electronic', 'Fri', '15:20-16:00', "Tomorrow's Warriors Big Top"),
     ('SETWUN', 'Electronic', 'Thu', '14:00-14:40', 'Lush Life'),
     ('Shackleton (Live)', 'Dub-techno', 'Sat', '22:00-23:00', 'The Grove'),
     ('Ehua', 'Afro-house', 'Thu', '20:30-22:00', 'The Grove'),
     ('Toribio', 'House / Disco', 'Thu', '17:30-19:00', 'The Bowl'),
     ('Glenn Underground', 'House', 'Thu', '22:00-00:00', 'The Bowl'),
     ('Nightmares on Wax b2b Trojan Sound System b2b Daddy G', 'Dub / Downtempo', 'Thu', '20:00-00:00', "Love Dancin'"),
-    ('AliA', 'House', 'Thu', '19:30-20:30', 'Lemon Lounge'),
+    ('AliA', 'Eclectic / UK Bass', 'Thu', '19:30-20:30', 'Lemon Lounge'),
     ('Giles Smith & Alexander Nut', 'Broken Beat / Eclectic', 'Thu', '20:00-22:30', 'Roller Rink'),
     ('Atjazz', 'House', 'Thu', '22:30-00:00', 'Roller Rink'),
     ('re:ni', 'Techno', 'Sat', '23:00-01:00', 'The Grove'),
@@ -54,7 +53,7 @@ ELECTRONIC = [
     ('Introspekt', 'Techno', 'Thu', '19:00-20:30', 'Carhartt WIP'),
     ('Alexander Nut', 'Broken Beat / Eclectic', 'Sat', '14:00-15:00', 'Lemon Lounge'),
     ('Alix Perez ft SP:MC', 'Drum & Bass', 'Sat', '22:30-00:30', 'Rhythm Corner'),
-    ('Beatrice M. & AliA', 'House', 'Fri', '19:00-21:30', 'The Bowl'),
+    ('Beatrice M. & AliA', 'Dubstep / UK Bass', 'Fri', '19:00-21:30', 'The Bowl'),
     ('Bryan Gee (Old Skool Set)', 'Jungle / Drum & Bass', 'Sun', '20:30-22:00', 'The Grove'),
     ('Calibre ft SP:MC', 'Drum & Bass', 'Sat', '00:30-02:30', 'Rhythm Corner'),
     ('Charlie Dark', 'Broken Beat / Eclectic', 'Sun', '13:00-14:50', 'The Bowl'),
@@ -63,7 +62,7 @@ ELECTRONIC = [
     ('Cosmo Sofi', 'House / Disco', 'Sat', '23:00-00:30', 'Roller Rink'),
     ('dBridge', 'Drum & Bass / Halftime', 'Sun', '23:00-00:00', 'The Grove'),
     ('Dom Servini', 'Broken Beat / Eclectic', 'Fri', '00:00-01:00', 'Near Mint Record Store'),
-    ('Double O', 'Bass / Grime', 'Sun', '19:30-20:30', 'The Grove'),
+    ('Double O', 'Jungle / Drum & Bass', 'Sun', '19:30-20:30', 'The Grove'),
     ('Dr Banana', 'House / Disco', 'Sun', '15:30-17:15', 'Rhythm Corner'),
     ('Lev & Faro', 'House / Disco', 'Sat', '21:30-23:00', 'The Bowl'),
     ('DJ Flight', 'Jungle / Drum & Bass', 'Sat', '19:00-21:00', 'Rhythm Corner'),
@@ -87,18 +86,18 @@ ELECTRONIC = [
     ('Nono Gigsta', 'Genre-warping (jungle/house/dub)', 'Sat', '02:00-04:00', 'The Grove'),
     ('Palms Trax', 'House', 'Fri', '23:30-01:30', 'Rhythm Corner'),
     ('Pariah', 'Techno / Bass', 'Fri', '21:30-23:00', 'The Bowl'),
-    ('DJ Perception', 'Jungle / Drum & Bass', 'Fri', '23:00-00:30', "Tomorrow's Warriors Big Top"),
+    ('DJ Perception', 'UK Garage', 'Fri', '23:00-00:30', "Tomorrow's Warriors Big Top"),
     ('Poly-Ritmo', 'Afro-Latin club', 'Sat', '15:00-17:00', "Love Dancin'"),
     ('Ruby Savage', 'Disco / House', 'Sun', '18:00-20:00', 'Beat Hotel x Ilegal Mezcal'),
     ('Sadar Bahar', 'Disco / House digger', 'Sat', '02:00-04:00', 'The Bowl'),
     ('Salute', 'UK Bass / Broken Beat', 'Sun', '19:00-21:00', 'Rhythm Corner'),
-    ('Shy One', 'Jungle / Drum & Bass', 'Fri', '00:30-02:30', "Love Dancin'"),
+    ('Shy One', 'Eclectic / Broken Beat', 'Fri', '00:30-02:30', "Love Dancin'"),
     ('Tama Sumo & Lakuti', 'House / Techno', 'Fri', '20:30-23:30', 'Rhythm Corner'),
-    ('Tasha', 'House / UK Garage', 'Fri', '02:30-04:00', 'The Bowl'),
+    ('Tasha', 'Drum & Bass / Techno', 'Fri', '02:30-04:00', 'The Bowl'),
     ('Tone B Nimble', 'Broken Beat', 'Sun', '16:10-17:40', 'The Bowl'),
     ('Trafford (Nick Williams memorial set)', 'House / Disco', 'Sat', '13:00-15:00', "Love Dancin'"),
     ('Wookie', 'UK Garage', 'Fri', '02:00-04:00', "Tomorrow's Warriors Big Top"),
-    ('Yoofee', 'Eclectic dance', 'Fri', '15:00-16:00', 'Rhythm Corner'),
+    ('Yoofee', 'Jazz / Electronic', 'Fri', '15:00-16:00', 'Rhythm Corner'),
     ('rRoxymore', 'Techno / House', 'Sat', '02:00-04:00', "Tomorrow's Warriors Big Top"),
     ('Ivy Lab', 'Bass / Halftime', 'Sat', '02:30-04:00', 'Rhythm Corner'),
     ('I-Sha', 'Experimental electronic', 'Sat', '20:00-22:00', 'The Grove'),
@@ -115,6 +114,7 @@ ELECTRONIC = [
 ]
 
 SOUL_JAZZ = [
+    ('LOWXND', 'Jazz / Live bass', 'Fri', '15:20-16:00', "Tomorrow's Warriors Big Top"),
     ('Gary Bartz', 'Jazz', 'Sun', '21:15-22:30', 'Main Stage'),
     ('Joy Crookes', 'Soul', 'Fri', '19:50-20:50', 'Main Stage'),
     ('Stereolab', 'Live / Alt', 'Sun', '19:30-20:30', 'Main Stage'),
@@ -146,7 +146,7 @@ SOUL_JAZZ = [
     ('Speakers Corner Quartet: The Music of Arthur Russell', 'Experimental / Classical', 'Thu', '18:20-19:20', 'Lush Life'),
     ("Dave Okumu presents DVTN: A Prayer for D'Angelo", 'Soul tribute', 'Fri', '14:50-16:00', 'Main Stage'),
     ('Cara O Sextet', 'Jazz sextet', 'Sat', '12:35-13:15', "Tomorrow's Warriors Big Top"),
-    ('Cube Legacy Band', 'Soul / Funk', 'Sat', '16:20-17:05', "Tomorrow's Warriors Big Top"),
+    ('Cube Legacy Band', 'Jazz', 'Sat', '16:20-17:05', "Tomorrow's Warriors Big Top"),
     ('Femi Koleoso', 'Jazz / DJ crossover', 'Thu', '18:30-20:30', 'Rhythm Corner'),
     ('Peven Everett', 'Soulful house vocalist (live)', 'Sat', '21:40-22:50', 'Main Stage'),
     ('SALIMATA', 'Rap / Poet', 'Sat', '22:20-23:00', "Tomorrow's Warriors Big Top"),
@@ -180,5 +180,7 @@ NOTE = ("This is a hand-picked selection, not the full programme. The official s
         "Love-Serve Bar, Passenger Presents: Ground Tempo) and the stages that are here are not "
         "complete either. Every day, time and stage below was checked against the official set times "
         "on 15 Aug 2026 and all 143 agree; run verify.py to recheck, because the festival does move "
-        "things. Some artists play more than once across the weekend and we list one slot each, so "
-        "check the official page if your pick has another set.")
+        "things. The lists show one slot per artist, but click any name for the festival's own "
+        "write-up and every set that artist plays, which for 31 of them is more than one. Genres "
+        "are our own shorthand for filtering rather than anything official, so treat them as a "
+        "rough steer and read the write-up if it matters.")

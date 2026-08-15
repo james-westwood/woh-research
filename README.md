@@ -8,8 +8,8 @@ weekend starts, rather than reading a name on a stage and hoping.
 
 The lineup is split into two lists, because in practice you plan around them separately:
 
-- **Electronic** (87 sets): dub and dubstep, techno, house, electro, garage, drum & bass.
-- **Soul, Jazz & Afrobeat** (56 sets): live bands, jazz, soul, hip-hop and global sounds.
+- **Electronic** (86 sets): dub and dubstep, techno, house, electro, garage, drum & bass.
+- **Soul, Jazz & Afrobeat** (57 sets): live bands, jazz, soul, hip-hop and global sounds.
 
 Both lists run in chronological order, and filter by day, by sound and by stage, plus a search
 by name. Sounds and stages are additive, so selecting Techno and House shows both. Every set
@@ -22,8 +22,27 @@ comes out as I-Sha 20:00, Shackleton 22:00, re:ni 23:00, Blawan 01:00, Nono Gigs
 is how you would actually stand there and watch it.
 
 Nineteen artists have a specific mix picked out and marked "Play mix"; the rest link to a
-SoundCloud and Mixcloud search so you can dig yourself. The landing page lists all 143 names
-alphabetically, and picking one jumps straight to its set time.
+SoundCloud and Mixcloud search so you can dig yourself.
+
+Every name is a link to that artist's own page, which carries the festival's write-up of them and
+**every set they play**, not just the one on the list. That matters more than expected: 31 of the
+143 play more than once, and some of those are b2b billings you would otherwise miss, so AliA's
+page shows both her Thursday solo set and the Friday b2b billed as "BEATRICE M. & ALIA". The
+landing page lists all 143 names alphabetically as a way in.
+
+## A note on genres
+
+The genre tags are editorial, not official. The festival publishes no genre data, so they are
+hand-written shorthand to make the sound filters useful, and they are the weakest part of the
+data. Several were wrong until they were checked against the festival's own artist write-ups:
+Beatrice M. & AliA were filed as House when Beatrice M. releases on Tempa and Tectonic and AliA's
+write-up name-drops "dubstep stalwarts HVYWGHT"; Double O was filed as Grime when he is "one of
+the most respected heads in Jungle and Drum'n'Bass"; Tasha was filed as House / UK Garage when she
+"made her name in the drum & bass community"; and LOWXND was on the electronic list when he is a
+jazz bassist who plays Ronnie Scott's.
+
+If a tag looks wrong to your ears, it probably is. Fix it in `data.py` and rebuild. The artist
+page always carries the festival's own words, so the tag never has to be the last word.
 
 ## Building it
 
@@ -34,9 +53,13 @@ CSS and JS:
 python3 build.py
 ```
 
-That regenerates `index.html`, `electronic.html`, `soul-jazz-afro.html`, `style.css` and
-`app.js`. Edit `data.py` or `build.py`, never the generated files, or your changes get
-overwritten on the next build.
+That regenerates `index.html`, `electronic.html`, `soul-jazz-afro.html`, `style.css`, `app.js`
+and the 143 pages in `artists/`. Edit `data.py` or `build.py`, never the generated files, or your
+changes get overwritten on the next build.
+
+`build.py` never touches the network. It reads two committed snapshots of the official site,
+`official_schedule.json` (all 565 sets) and `artist_bios.json` (179 write-ups), which are
+refreshed by `fetch_official.py` when the festival changes something.
 
 ## Coverage and caveats
 
