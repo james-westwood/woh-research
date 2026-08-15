@@ -41,6 +41,10 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
     <span class="chiplabel">Day</span>
     <div class="chips"><button type="button" class="chip" data-day-filter="Thu" aria-pressed="false">Thu 20</button><button type="button" class="chip" data-day-filter="Fri" aria-pressed="false">Fri 21</button><button type="button" class="chip" data-day-filter="Sat" aria-pressed="false">Sat 22</button><button type="button" class="chip" data-day-filter="Sun" aria-pressed="false">Sun 23</button></div>
   </div>
+  <div class="chipgroup">
+    <span class="chiplabel">Sound</span>
+    <div class="chips"><button type="button" class="chip" data-filter="Jazz" aria-pressed="false">Jazz</button><button type="button" class="chip" data-filter="Soul / R&amp;B" aria-pressed="false">Soul / R&amp;B</button><button type="button" class="chip" data-filter="Hip-hop / Rap" aria-pressed="false">Hip-hop / Rap</button><button type="button" class="chip" data-filter="Afrobeat / Global" aria-pressed="false">Afrobeat / Global</button><button type="button" class="chip" data-filter="Live band / Fusion" aria-pressed="false">Live band / Fusion</button></div>
+  </div>
 
   <div class="tally">
     <span id="tally"></span>
@@ -48,7 +52,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
   </div>
 
   <div class="grid">
-<article class="set" data-day="Sun" data-name="gary bartz">
+<article class="set" data-day="Sun" data-cat="Jazz" data-name="gary bartz">
       <div class="clock">
         <span class="clock-start">21:15</span>
         <span class="clock-end">22:30</span>
@@ -63,7 +67,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Gary%20Bartz" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Gary%20Bartz" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="joy crookes">
+<article class="set" data-day="Fri" data-cat="Soul / R&amp;B" data-name="joy crookes">
       <div class="clock">
         <span class="clock-start">19:50</span>
         <span class="clock-end">20:50</span>
@@ -78,7 +82,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Joy%20Crookes" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Joy%20Crookes" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sun" data-name="stereolab">
+<article class="set" data-day="Sun" data-cat="Live band / Fusion" data-name="stereolab">
       <div class="clock">
         <span class="clock-start">19:30</span>
         <span class="clock-end">20:30</span>
@@ -93,7 +97,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Stereolab" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Stereolab" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Thu" data-name="digable planets">
+<article class="set" data-day="Thu" data-cat="Hip-hop / Rap" data-name="digable planets">
       <div class="clock">
         <span class="clock-start">19:20</span>
         <span class="clock-end">20:30</span>
@@ -108,7 +112,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Digable%20Planets" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Digable%20Planets" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sun" data-name="shabaka">
+<article class="set" data-day="Sun" data-cat="Jazz" data-name="shabaka">
       <div class="clock">
         <span class="clock-start">15:50</span>
         <span class="clock-end">16:40</span>
@@ -123,7 +127,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Shabaka" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Shabaka" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="kofi stone">
+<article class="set" data-day="Sat" data-cat="Soul / R&amp;B|Hip-hop / Rap" data-name="kofi stone">
       <div class="clock">
         <span class="clock-start">20:30</span>
         <span class="clock-end">21:30</span>
@@ -138,7 +142,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Kofi%20Stone" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Kofi%20Stone" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="sampa the great">
+<article class="set" data-day="Fri" data-cat="Soul / R&amp;B|Hip-hop / Rap" data-name="sampa the great">
       <div class="clock">
         <span class="clock-start">19:10</span>
         <span class="clock-end">20:00</span>
@@ -153,7 +157,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Sampa%20The%20Great" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Sampa%20The%20Great" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="mike">
+<article class="set" data-day="Sat" data-cat="Hip-hop / Rap" data-name="mike">
       <div class="clock">
         <span class="clock-start">18:50</span>
         <span class="clock-end">19:50</span>
@@ -168,7 +172,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Mike" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Mike" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="aja monet">
+<article class="set" data-day="Sat" data-cat="Soul / R&amp;B" data-name="aja monet">
       <div class="clock">
         <span class="clock-start">15:40</span>
         <span class="clock-end">16:30</span>
@@ -183,7 +187,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Aja%20Monet" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Aja%20Monet" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="yukimi">
+<article class="set" data-day="Fri" data-cat="Soul / R&amp;B|Live band / Fusion" data-name="yukimi">
       <div class="clock">
         <span class="clock-start">17:30</span>
         <span class="clock-end">18:20</span>
@@ -198,7 +202,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Yukimi" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Yukimi" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sun" data-name="james k">
+<article class="set" data-day="Sun" data-cat="Live band / Fusion" data-name="james k">
       <div class="clock">
         <span class="clock-start">19:00</span>
         <span class="clock-end">19:50</span>
@@ -213,7 +217,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=james%20K" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=james%20K" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="corto.alto">
+<article class="set" data-day="Fri" data-cat="Jazz|Live band / Fusion" data-name="corto.alto">
       <div class="clock">
         <span class="clock-start">16:40</span>
         <span class="clock-end">17:30</span>
@@ -228,7 +232,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Corto.Alto" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Corto.Alto" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sun" data-name="yazmin lacey">
+<article class="set" data-day="Sun" data-cat="Soul / R&amp;B" data-name="yazmin lacey">
       <div class="clock">
         <span class="clock-start">20:30</span>
         <span class="clock-end">21:30</span>
@@ -243,7 +247,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Yazmin%20Lacey" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Yazmin%20Lacey" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="john glacier">
+<article class="set" data-day="Fri" data-cat="Hip-hop / Rap|Live band / Fusion" data-name="john glacier">
       <div class="clock">
         <span class="clock-start">16:00</span>
         <span class="clock-end">16:50</span>
@@ -258,7 +262,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=John%20Glacier" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=John%20Glacier" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Thu" data-name="butcher brown">
+<article class="set" data-day="Thu" data-cat="Jazz|Live band / Fusion" data-name="butcher brown">
       <div class="clock">
         <span class="clock-start">17:30</span>
         <span class="clock-end">18:30</span>
@@ -273,7 +277,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Butcher%20Brown" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Butcher%20Brown" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="cleo reed">
+<article class="set" data-day="Fri" data-cat="Jazz|Soul / R&amp;B" data-name="cleo reed">
       <div class="clock">
         <span class="clock-start">13:25</span>
         <span class="clock-end">14:15</span>
@@ -288,7 +292,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Cleo%20Reed" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Cleo%20Reed" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="amaro freitas">
+<article class="set" data-day="Sat" data-cat="Jazz" data-name="amaro freitas">
       <div class="clock">
         <span class="clock-start">12:00</span>
         <span class="clock-end">12:50</span>
@@ -303,7 +307,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Amaro%20Freitas" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Amaro%20Freitas" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sun" data-name="kahil el&#x27;zabar presents a love supreme">
+<article class="set" data-day="Sun" data-cat="Jazz" data-name="kahil el&#x27;zabar presents a love supreme">
       <div class="clock">
         <span class="clock-start">18:00</span>
         <span class="clock-end">19:00</span>
@@ -318,7 +322,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Kahil%20El%27Zabar" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Kahil%20El%27Zabar" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="anaiis">
+<article class="set" data-day="Fri" data-cat="Soul / R&amp;B|Live band / Fusion" data-name="anaiis">
       <div class="clock">
         <span class="clock-start">18:10</span>
         <span class="clock-end">19:10</span>
@@ -333,7 +337,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Anaiis" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Anaiis" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="gena feat liv.e &amp; karriem riggins">
+<article class="set" data-day="Sat" data-cat="Jazz|Hip-hop / Rap" data-name="gena feat liv.e &amp; karriem riggins">
       <div class="clock">
         <span class="clock-start">17:00</span>
         <span class="clock-end">18:00</span>
@@ -348,7 +352,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Gena" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Gena" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="the heliocentrics">
+<article class="set" data-day="Fri" data-cat="Jazz|Live band / Fusion" data-name="the heliocentrics">
       <div class="clock">
         <span class="clock-start">14:10</span>
         <span class="clock-end">15:10</span>
@@ -363,7 +367,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=The%20Heliocentrics" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=The%20Heliocentrics" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="momoko gill">
+<article class="set" data-day="Sat" data-cat="Jazz|Soul / R&amp;B" data-name="momoko gill">
       <div class="clock">
         <span class="clock-start">13:30</span>
         <span class="clock-end">14:20</span>
@@ -378,7 +382,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Momoko%20Gill" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Momoko%20Gill" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="rogê">
+<article class="set" data-day="Fri" data-cat="Soul / R&amp;B|Afrobeat / Global" data-name="rogê">
       <div class="clock">
         <span class="clock-start">22:10</span>
         <span class="clock-end">23:00</span>
@@ -393,7 +397,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Rog%C3%AA" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Rog%C3%AA" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="bel cobain">
+<article class="set" data-day="Fri" data-cat="Soul / R&amp;B" data-name="bel cobain">
       <div class="clock">
         <span class="clock-start">12:20</span>
         <span class="clock-end">13:00</span>
@@ -408,7 +412,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Bel%20Cobain" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Bel%20Cobain" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Thu" data-name="the zawose queens">
+<article class="set" data-day="Thu" data-cat="Afrobeat / Global" data-name="the zawose queens">
       <div class="clock">
         <span class="clock-start">14:40</span>
         <span class="clock-end">15:30</span>
@@ -423,7 +427,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=The%20Zawose%20Queens" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=The%20Zawose%20Queens" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sun" data-name="ana frango elétrico">
+<article class="set" data-day="Sun" data-cat="Afrobeat / Global|Live band / Fusion" data-name="ana frango elétrico">
       <div class="clock">
         <span class="clock-start">16:30</span>
         <span class="clock-end">17:30</span>
@@ -438,7 +442,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Ana%20Frango%20El%C3%A9trico" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Ana%20Frango%20El%C3%A9trico" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sun" data-name="natural information society">
+<article class="set" data-day="Sun" data-cat="Jazz" data-name="natural information society">
       <div class="clock">
         <span class="clock-start">14:20</span>
         <span class="clock-end">15:10</span>
@@ -453,7 +457,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Natural%20Information%20Society" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Natural%20Information%20Society" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sun" data-name="joshua idehen">
+<article class="set" data-day="Sun" data-cat="Jazz" data-name="joshua idehen">
       <div class="clock">
         <span class="clock-start">13:30</span>
         <span class="clock-end">14:30</span>
@@ -468,7 +472,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Joshua%20Idehen" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Joshua%20Idehen" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Thu" data-name="speakers corner quartet: the music of arthur russell">
+<article class="set" data-day="Thu" data-cat="Jazz|Live band / Fusion" data-name="speakers corner quartet: the music of arthur russell">
       <div class="clock">
         <span class="clock-start">18:20</span>
         <span class="clock-end">19:20</span>
@@ -483,7 +487,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Speakers%20Corner%20Quartet%3A%20The%20Music%20of%20Arthur%20Russell" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Speakers%20Corner%20Quartet%3A%20The%20Music%20of%20Arthur%20Russell" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="dave okumu presents dvtn: a prayer for d&#x27;angelo">
+<article class="set" data-day="Fri" data-cat="Soul / R&amp;B|Live band / Fusion" data-name="dave okumu presents dvtn: a prayer for d&#x27;angelo">
       <div class="clock">
         <span class="clock-start">14:50</span>
         <span class="clock-end">16:00</span>
@@ -498,7 +502,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Dave%20Okumu" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Dave%20Okumu" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="cara o sextet">
+<article class="set" data-day="Sat" data-cat="Jazz" data-name="cara o sextet">
       <div class="clock">
         <span class="clock-start">12:35</span>
         <span class="clock-end">13:15</span>
@@ -513,7 +517,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Cara%20O%20Sextet" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Cara%20O%20Sextet" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="cube legacy band">
+<article class="set" data-day="Sat" data-cat="Soul / R&amp;B|Live band / Fusion" data-name="cube legacy band">
       <div class="clock">
         <span class="clock-start">16:20</span>
         <span class="clock-end">17:05</span>
@@ -528,7 +532,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Cube%20Legacy%20Band" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Cube%20Legacy%20Band" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Thu" data-name="femi koleoso">
+<article class="set" data-day="Thu" data-cat="Jazz" data-name="femi koleoso">
       <div class="clock">
         <span class="clock-start">18:30</span>
         <span class="clock-end">20:30</span>
@@ -543,7 +547,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Femi%20Koleoso" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Femi%20Koleoso" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="peven everett">
+<article class="set" data-day="Sat" data-cat="Soul / R&amp;B|Live band / Fusion" data-name="peven everett">
       <div class="clock">
         <span class="clock-start">21:40</span>
         <span class="clock-end">22:50</span>
@@ -558,7 +562,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Peven%20Everett" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Peven%20Everett" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="salimata">
+<article class="set" data-day="Sat" data-cat="Hip-hop / Rap" data-name="salimata">
       <div class="clock">
         <span class="clock-start">22:20</span>
         <span class="clock-end">23:00</span>
@@ -573,7 +577,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=SALIMATA" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=SALIMATA" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="steam down">
+<article class="set" data-day="Sat" data-cat="Jazz" data-name="steam down">
       <div class="clock">
         <span class="clock-start">14:10</span>
         <span class="clock-end">15:00</span>
@@ -588,7 +592,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Steam%20Down" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Steam%20Down" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="thundercat">
+<article class="set" data-day="Fri" data-cat="Jazz|Live band / Fusion" data-name="thundercat">
       <div class="clock">
         <span class="clock-start">21:40</span>
         <span class="clock-end">22:50</span>
@@ -603,7 +607,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Thundercat" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Thundercat" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Thu" data-name="tom skinner">
+<article class="set" data-day="Thu" data-cat="Jazz" data-name="tom skinner">
       <div class="clock">
         <span class="clock-start">16:00</span>
         <span class="clock-end">16:50</span>
@@ -618,7 +622,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Tom%20Skinner" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Tom%20Skinner" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="your brother&#x27;s keeper &amp; gary bartz">
+<article class="set" data-day="Sat" data-cat="Jazz" data-name="your brother&#x27;s keeper &amp; gary bartz">
       <div class="clock">
         <span class="clock-start">20:00</span>
         <span class="clock-end">21:00</span>
@@ -633,7 +637,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Your%20Brother%27s%20Keeper%20%26%20Gary%20Bartz" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Your%20Brother%27s%20Keeper%20%26%20Gary%20Bartz" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sun" data-name="zena x mereba x kibrom birhane">
+<article class="set" data-day="Sun" data-cat="Soul / R&amp;B|Afrobeat / Global" data-name="zena x mereba x kibrom birhane">
       <div class="clock">
         <span class="clock-start">15:00</span>
         <span class="clock-end">16:00</span>
@@ -648,7 +652,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Zena%20x%20Mereba%20x%20Kibrom%20Birhane" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Zena%20x%20Mereba%20x%20Kibrom%20Birhane" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="ge-ology">
+<article class="set" data-day="Sat" data-cat="Hip-hop / Rap" data-name="ge-ology">
       <div class="clock">
         <span class="clock-start">23:00</span>
         <span class="clock-end">02:00</span>
@@ -663,7 +667,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn btn--play" href="https://soundcloud.com/gillespeterson/ge-ology-in-the-mix" target="_blank" rel="noopener"><span aria-hidden="true">&#9654;</span> Play mix</a><a class="btn" href="https://soundcloud.com/search?q=Ge-ology" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Ge-ology" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="dj spanish fly (live)">
+<article class="set" data-day="Sat" data-cat="Hip-hop / Rap" data-name="dj spanish fly (live)">
       <div class="clock">
         <span class="clock-start">19:30</span>
         <span class="clock-end">20:30</span>
@@ -678,7 +682,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn btn--play" href="https://soundcloud.com/user-643553014/dj-spanish-fly-230724" target="_blank" rel="noopener"><span aria-hidden="true">&#9654;</span> Play mix</a><a class="btn" href="https://soundcloud.com/search?q=DJ%20Spanish%20Fly" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=DJ%20Spanish%20Fly" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="elliott skinner">
+<article class="set" data-day="Sat" data-cat="Soul / R&amp;B" data-name="elliott skinner">
       <div class="clock">
         <span class="clock-start">21:00</span>
         <span class="clock-end">21:55</span>
@@ -693,7 +697,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn btn--play" href="https://soundcloud.com/elliott-reed-skinner" target="_blank" rel="noopener"><span aria-hidden="true">&#9654;</span> Play mix</a><a class="btn" href="https://soundcloud.com/search?q=Elliott%20Skinner" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Elliott%20Skinner" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="olive jones">
+<article class="set" data-day="Fri" data-cat="Jazz" data-name="olive jones">
       <div class="clock">
         <span class="clock-start">12:50</span>
         <span class="clock-end">13:30</span>
@@ -708,7 +712,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Olive%20Jones" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Olive%20Jones" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="dave okumu &amp; tom skinner">
+<article class="set" data-day="Sat" data-cat="Jazz" data-name="dave okumu &amp; tom skinner">
       <div class="clock">
         <span class="clock-start">13:00</span>
         <span class="clock-end">14:00</span>
@@ -723,7 +727,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Dave%20Okumu%20%26%20Tom%20Skinner" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Dave%20Okumu%20%26%20Tom%20Skinner" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="marina &amp; yazmin lacey">
+<article class="set" data-day="Sat" data-cat="Soul / R&amp;B" data-name="marina &amp; yazmin lacey">
       <div class="clock">
         <span class="clock-start">21:00</span>
         <span class="clock-end">22:30</span>
@@ -738,7 +742,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Marina%20%26%20Yazmin%20Lacey" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Marina%20%26%20Yazmin%20Lacey" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="arthur verocai with nu civilisation orchestra">
+<article class="set" data-day="Sat" data-cat="Afrobeat / Global" data-name="arthur verocai with nu civilisation orchestra">
       <div class="clock">
         <span class="clock-start">19:40</span>
         <span class="clock-end">21:00</span>
@@ -753,7 +757,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Arthur%20Verocai" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Arthur%20Verocai" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="klara devlin">
+<article class="set" data-day="Sat" data-cat="Jazz" data-name="klara devlin">
       <div class="clock">
         <span class="clock-start">13:40</span>
         <span class="clock-end">14:20</span>
@@ -768,7 +772,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Klara%20Devlin" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Klara%20Devlin" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="bxl x ldn interplay iii">
+<article class="set" data-day="Sat" data-cat="Jazz" data-name="bxl x ldn interplay iii">
       <div class="clock">
         <span class="clock-start">14:50</span>
         <span class="clock-end">15:50</span>
@@ -783,7 +787,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=BXL%20x%20LDN%20Interplay%20III" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=BXL%20x%20LDN%20Interplay%20III" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="kassa gj quartet">
+<article class="set" data-day="Sat" data-cat="Jazz" data-name="kassa gj quartet">
       <div class="clock">
         <span class="clock-start">17:30</span>
         <span class="clock-end">18:15</span>
@@ -798,7 +802,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Kassa%20GJ%20Quartet" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Kassa%20GJ%20Quartet" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Sat" data-name="mali sheard">
+<article class="set" data-day="Sat" data-cat="Jazz" data-name="mali sheard">
       <div class="clock">
         <span class="clock-start">18:45</span>
         <span class="clock-end">19:30</span>
@@ -813,7 +817,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Mali%20Sheard" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Mali%20Sheard" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="finka">
+<article class="set" data-day="Fri" data-cat="Jazz" data-name="finka">
       <div class="clock">
         <span class="clock-start">12:20</span>
         <span class="clock-end">12:50</span>
@@ -828,7 +832,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Finka" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Finka" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="holly reinhardt">
+<article class="set" data-day="Fri" data-cat="Jazz" data-name="holly reinhardt">
       <div class="clock">
         <span class="clock-start">14:15</span>
         <span class="clock-end">14:55</span>
@@ -843,7 +847,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Holly%20Reinhardt" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Holly%20Reinhardt" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="jobsearch">
+<article class="set" data-day="Fri" data-cat="Jazz" data-name="jobsearch">
       <div class="clock">
         <span class="clock-start">17:35</span>
         <span class="clock-end">18:15</span>
@@ -858,7 +862,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Jobsearch" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Jobsearch" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="plumm">
+<article class="set" data-day="Fri" data-cat="Jazz" data-name="plumm">
       <div class="clock">
         <span class="clock-start">20:00</span>
         <span class="clock-end">20:40</span>
@@ -873,7 +877,7 @@ try { var t = localStorage.getItem('woh-theme'); if (t) document.body.setAttribu
         <div class="set-links"><a class="btn" href="https://soundcloud.com/search?q=Plumm" target="_blank" rel="noopener">Search SoundCloud</a><a class="btn" href="https://www.mixcloud.com/search/?q=Plumm" target="_blank" rel="noopener">Search Mixcloud</a></div>
       </div>
     </article>
-<article class="set" data-day="Fri" data-name="knats">
+<article class="set" data-day="Fri" data-cat="Jazz" data-name="knats">
       <div class="clock">
         <span class="clock-start">21:00</span>
         <span class="clock-end">21:45</span>

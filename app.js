@@ -21,16 +21,21 @@
   var clearBtn = document.getElementById('clearFilters');
   var emptyMsg = document.getElementById('emptyMsg');
   var dayBtns = Array.prototype.slice.call(document.querySelectorAll('[data-day-filter]'));
+  var catBtns = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
 
   var activeDay = null;
+  var activeCats = [];
   var term = '';
 
   function apply() {
     var visible = 0;
     sets.forEach(function (el) {
+      var cats = el.getAttribute('data-cat').split('|');
       var dayOk = !activeDay || el.getAttribute('data-day') === activeDay;
+      // Several sounds per set, so any selected sound matching is enough.
+      var catOk = !activeCats.length || cats.some(function (c) { return activeCats.indexOf(c) !== -1; });
       var nameOk = !term || el.getAttribute('data-name').indexOf(term) !== -1;
-      var show = dayOk && nameOk;
+      var show = dayOk && catOk && nameOk;
       el.hidden = !show;
       if (show) visible++;
     });
@@ -54,6 +59,16 @@
     });
   });
 
+  catBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.getAttribute('data-filter');
+      var i = activeCats.indexOf(f);
+      if (i !== -1) { activeCats.splice(i, 1); btn.setAttribute('aria-pressed', 'false'); }
+      else { activeCats.push(f); btn.setAttribute('aria-pressed', 'true'); }
+      apply();
+    });
+  });
+
   search.addEventListener('input', function () {
     term = search.value.trim().toLowerCase();
     apply();
@@ -61,9 +76,10 @@
 
   clearBtn.addEventListener('click', function () {
     activeDay = null;
+    activeCats = [];
     term = '';
     search.value = '';
-    dayBtns.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+    dayBtns.concat(catBtns).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
     apply();
     search.focus();
   });
