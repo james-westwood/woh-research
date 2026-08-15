@@ -1,3 +1,4 @@
+import collections
 import html
 import re
 from urllib.parse import quote
@@ -47,6 +48,23 @@ def mc_search(name):
 
 DAYS = ['Thu', 'Fri', 'Sat', 'Sun']
 DAY_NAMES = {'Thu': 'Thu 20', 'Fri': 'Fri 21', 'Sat': 'Sat 22', 'Sun': 'Sun 23'}
+DAY_ORDER = {d: i for i, d in enumerate(DAYS)}
+
+# A festival day does not end at midnight. Saturday at The Grove runs I-Sha
+# 20:00, Shackleton 22:00, re:ni 23:00-01:00, Blawan 01:00, Nono Gigsta
+# 02:00-04:00: one continuous night. So a set starting before this hour belongs
+# at the END of its day's running order, not the start. Nothing in the data
+# starts between 04:00 and 11:00, so the boundary is unambiguous.
+ROLLOVER_HOUR = 6
+
+def start_minutes(time):
+    """Minutes from the start of the festival day, rolling small hours past midnight."""
+    h, m = int(time[:2]), int(time[3:5])
+    return h * 60 + m + (24 * 60 if h < ROLLOVER_HOUR else 0)
+
+def running_order(items):
+    """Chronological: day, then time within that day's programme."""
+    return sorted(items, key=lambda it: (DAY_ORDER[it[2]], start_minutes(it[3]), it[0].lower()))
 
 def set_html(name, tag, day, time, stage, catmap):
     cats = categorize(tag, catmap)
@@ -62,7 +80,7 @@ def set_html(name, tag, day, time, stage, catmap):
     links += (f'<a class="btn" href="{esc(mc_search(name))}" target="_blank" rel="noopener">'
               f'Search Mixcloud</a>')
 
-    return f'''<article class="set" data-day="{esc(day)}" data-cat="{esc('|'.join(cats))}" data-name="{esc(name.lower())}">
+    return f'''<article class="set" data-day="{esc(day)}" data-cat="{esc('|'.join(cats))}" data-stage="{esc(stage)}" data-name="{esc(name.lower())}">
       <div class="clock">
         <span class="clock-start">{esc(start)}</span>
         <span class="clock-end">{esc(end)}</span>
@@ -82,6 +100,15 @@ def chips_html(catmap):
     return ''.join(
         f'<button type="button" class="chip" data-filter="{esc(label)}" aria-pressed="false">{esc(label)}</button>'
         for label, _ in catmap
+    )
+
+def stage_chips_html(items):
+    """Only the stages this list actually uses, busiest first."""
+    counts = collections.Counter(it[4] for it in items)
+    stages = sorted(counts, key=lambda s: (-counts[s], s.lower()))
+    return ''.join(
+        f'<button type="button" class="chip" data-stage-filter="{esc(s)}" aria-pressed="false">{esc(s)}</button>'
+        for s in stages
     )
 
 def day_chips_html():
@@ -597,9 +624,11 @@ JS = '''
   var emptyMsg = document.getElementById('emptyMsg');
   var dayBtns = Array.prototype.slice.call(document.querySelectorAll('[data-day-filter]'));
   var catBtns = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
+  var stageBtns = Array.prototype.slice.call(document.querySelectorAll('[data-stage-filter]'));
 
   var activeDay = null;
   var activeCats = [];
+  var activeStages = [];
   var term = '';
 
   function apply() {
@@ -609,8 +638,9 @@ JS = '''
       var dayOk = !activeDay || el.getAttribute('data-day') === activeDay;
       // Several sounds per set, so any selected sound matching is enough.
       var catOk = !activeCats.length || cats.some(function (c) { return activeCats.indexOf(c) !== -1; });
+      var stageOk = !activeStages.length || activeStages.indexOf(el.getAttribute('data-stage')) !== -1;
       var nameOk = !term || el.getAttribute('data-name').indexOf(term) !== -1;
-      var show = dayOk && catOk && nameOk;
+      var show = dayOk && catOk && stageOk && nameOk;
       el.hidden = !show;
       if (show) visible++;
     });
@@ -644,6 +674,16 @@ JS = '''
     });
   });
 
+  stageBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var s = btn.getAttribute('data-stage-filter');
+      var i = activeStages.indexOf(s);
+      if (i !== -1) { activeStages.splice(i, 1); btn.setAttribute('aria-pressed', 'false'); }
+      else { activeStages.push(s); btn.setAttribute('aria-pressed', 'true'); }
+      apply();
+    });
+  });
+
   search.addEventListener('input', function () {
     term = search.value.trim().toLowerCase();
     apply();
@@ -652,9 +692,10 @@ JS = '''
   clearBtn.addEventListener('click', function () {
     activeDay = null;
     activeCats = [];
+    activeStages = [];
     term = '';
     search.value = '';
-    dayBtns.concat(catBtns).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+    dayBtns.concat(catBtns, stageBtns).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
     apply();
     search.focus();
   });
@@ -696,6 +737,7 @@ def head(title, description):
 <link rel="stylesheet" href="style.css">'''
 
 def build_page(title, standfirst, items, catmap, active_nav):
+    items = running_order(items)
     rows = '\n'.join(set_html(*it, catmap) for it in items)
     desc = f'{standfirst} Every set at We Out Here 2026, with a mix to listen to first.'
     return f'''<!DOCTYPE html>
@@ -730,6 +772,10 @@ def build_page(title, standfirst, items, catmap, active_nav):
   <div class="chipgroup">
     <span class="chiplabel">Sound</span>
     <div class="chips">{chips_html(catmap)}</div>
+  </div>
+  <div class="chipgroup">
+    <span class="chiplabel">Stage</span>
+    <div class="chips">{stage_chips_html(items)}</div>
   </div>
 
   <div class="tally">

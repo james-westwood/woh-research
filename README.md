@@ -11,8 +11,15 @@ The lineup is split into two lists, because in practice you plan around them sep
 - **Electronic** (86 sets): dub and dubstep, techno, house, electro, garage, drum & bass.
 - **Soul, Jazz & Afrobeat** (56 sets): live bands, jazz, soul, hip-hop and global sounds.
 
-Both lists filter by day and by sound, and search by name. Sounds are additive, so selecting
-Techno and House shows both. Every set shows its time, stage and genre.
+Both lists run in chronological order, and filter by day, by sound and by stage, plus a search
+by name. Sounds and stages are additive, so selecting Techno and House shows both. Every set
+shows its time, stage and genre.
+
+Note that the running order treats a festival day as ending at 06:00, not at midnight. A set
+listed at 01:00 on Saturday is the small hours at the end of Saturday night, so it sorts after
+the Saturday evening sets rather than before the Saturday afternoon ones. Saturday at The Grove
+comes out as I-Sha 20:00, Shackleton 22:00, re:ni 23:00, Blawan 01:00, Nono Gigsta 02:00, which
+is how you would actually stand there and watch it.
 Nineteen artists have a specific mix picked out and marked "Play mix"; the rest link to a
 SoundCloud and Mixcloud search so you can dig yourself. The landing page lists all 142 names
 alphabetically, and picking one jumps straight to its set time.

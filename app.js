@@ -22,9 +22,11 @@
   var emptyMsg = document.getElementById('emptyMsg');
   var dayBtns = Array.prototype.slice.call(document.querySelectorAll('[data-day-filter]'));
   var catBtns = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
+  var stageBtns = Array.prototype.slice.call(document.querySelectorAll('[data-stage-filter]'));
 
   var activeDay = null;
   var activeCats = [];
+  var activeStages = [];
   var term = '';
 
   function apply() {
@@ -34,8 +36,9 @@
       var dayOk = !activeDay || el.getAttribute('data-day') === activeDay;
       // Several sounds per set, so any selected sound matching is enough.
       var catOk = !activeCats.length || cats.some(function (c) { return activeCats.indexOf(c) !== -1; });
+      var stageOk = !activeStages.length || activeStages.indexOf(el.getAttribute('data-stage')) !== -1;
       var nameOk = !term || el.getAttribute('data-name').indexOf(term) !== -1;
-      var show = dayOk && catOk && nameOk;
+      var show = dayOk && catOk && stageOk && nameOk;
       el.hidden = !show;
       if (show) visible++;
     });
@@ -69,6 +72,16 @@
     });
   });
 
+  stageBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var s = btn.getAttribute('data-stage-filter');
+      var i = activeStages.indexOf(s);
+      if (i !== -1) { activeStages.splice(i, 1); btn.setAttribute('aria-pressed', 'false'); }
+      else { activeStages.push(s); btn.setAttribute('aria-pressed', 'true'); }
+      apply();
+    });
+  });
+
   search.addEventListener('input', function () {
     term = search.value.trim().toLowerCase();
     apply();
@@ -77,9 +90,10 @@
   clearBtn.addEventListener('click', function () {
     activeDay = null;
     activeCats = [];
+    activeStages = [];
     term = '';
     search.value = '';
-    dayBtns.concat(catBtns).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+    dayBtns.concat(catBtns, stageBtns).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
     apply();
     search.focus();
   });
