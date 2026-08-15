@@ -50,8 +50,8 @@ ELECTRONIC = [
     ('Giles Smith & Alexander Nut', 'Broken Beat / Eclectic', 'Thu', '20:00-22:30', 'Roller Rink'),
     ('Atjazz', 'House', 'Thu', '22:30-00:00', 'Roller Rink'),
     ('re:ni', 'Techno', 'Sat', '23:00-01:00', 'The Grove'),
-    ('V.I.V.E.K', 'Dub', 'Thu', '17:30-19:00', 'Carhartt WIP'),
-    ('Introspekt', 'Techno', 'Fri', '19:00-20:30', 'Carhartt WIP'),
+    ('V.I.V.E.K', 'Dub', 'Thu', '16:00-17:30', 'Carhartt WIP'),
+    ('Introspekt', 'Techno', 'Thu', '19:00-20:30', 'Carhartt WIP'),
     ('Alexander Nut', 'Broken Beat / Eclectic', 'Sat', '14:00-15:00', 'Lemon Lounge'),
     ('Alix Perez ft SP:MC', 'Drum & Bass', 'Sat', '22:30-00:30', 'Rhythm Corner'),
     ('Beatrice M. & AliA', 'House', 'Fri', '19:00-21:30', 'The Bowl'),
@@ -70,13 +70,14 @@ ELECTRONIC = [
     ('Guedra Guedra', 'North African club', 'Sat', '00:30-02:00', 'Carhartt WIP'),
     ('Iration Steppas', 'Dub / Steppers', 'Fri', '15:00-17:00', 'The Bowl'),
     ('IZCO', 'Garage / Dub', 'Sat', '00:00-02:00', 'Brawnswood'),
-    ('Jamz Supernova', 'Broken Beat / Global bass', 'Thu', '22:30-23:55', 'Rhythm Corner'),
+    ('Jamz Supernova', 'Broken Beat / Global bass', 'Thu', '22:30-00:00', 'Rhythm Corner'),
     ('JKriv', 'Disco / House', 'Sat', '00:30-02:00', 'Roller Rink'),
-    ('Josey Rebelle', 'Techno / House', 'Fri', '23:30-00:30', 'The Bowl'),
-    ('K-Lone & Facta', 'UK Bass / Garage', 'Fri', '00:30-02:30', 'The Bowl'),
+    ('Josey Rebelle', 'Techno / House', 'Fri', '23:00-00:30', 'The Bowl'),
+    ('Facta & K-Lone', 'UK Bass / Garage', 'Fri', '00:30-02:30', 'The Bowl'),
+    ('Yushh', 'UK Bass / Techno', 'Fri', '22:00-23:00', 'Lemon Lounge'),
     ('Kenny Dope', 'House', 'Fri', '00:30-02:30', 'The Grove'),
     ('King Britt', 'House / Disco / Techno', 'Sat', '17:00-20:00', 'The Bowl'),
-    ('DJ Lovie', 'House / Disco', 'Sun', '14:50-16:10', 'The Bowl'),
+    ('Lovie', 'House / Disco', 'Sun', '14:50-16:10', 'The Bowl'),
     ('Luke Una', 'House / Balearic', 'Fri', '01:30-04:00', 'Rhythm Corner'),
     ('Mantra', 'Jungle / Drum & Bass', 'Sun', '22:00-23:00', 'The Grove'),
     ('Marcia Carr', 'Dancehall / Bass', 'Fri', '17:30-19:00', 'Rhythm Corner'),
@@ -85,7 +86,7 @@ ELECTRONIC = [
     ('Nightmares On Wax', 'Downtempo / House', 'Fri', '19:00-20:30', 'Rhythm Corner'),
     ('Nono Gigsta', 'Genre-warping (jungle/house/dub)', 'Sat', '02:00-04:00', 'The Grove'),
     ('Palms Trax', 'House', 'Fri', '23:30-01:30', 'Rhythm Corner'),
-    ('Pariah', 'Techno / Bass', 'Fri', '21:30-23:30', 'The Bowl'),
+    ('Pariah', 'Techno / Bass', 'Fri', '21:30-23:00', 'The Bowl'),
     ('DJ Perception', 'Jungle / Drum & Bass', 'Fri', '23:00-00:30', "Tomorrow's Warriors Big Top"),
     ('Poly-Ritmo', 'Afro-Latin club', 'Sat', '15:00-17:00', "Love Dancin'"),
     ('Ruby Savage', 'Disco / House', 'Sun', '18:00-20:00', 'Beat Hotel x Ilegal Mezcal'),
@@ -110,7 +111,7 @@ ELECTRONIC = [
     ('Emma-Jean Thackray', 'Jazz-electronic', 'Sun', '19:40-21:00', 'The Bowl'),
     ('Greg Wilson', 'Disco / Electro', 'Sun', '20:30-22:00', 'Roller Rink'),
     ('Winston Hazel & Josey Rebelle', 'House / Techno', 'Sun', '18:00-19:30', 'The Grove'),
-    ('Dingwalls session: Patrick Forge, Gilles Peterson, Colin Curtis & Coco Maria', 'Eclectic / Balearic', 'Sun', '11:00-00:00', "Love Dancin'"),
+    ("Another Sunday Afternoon At Dingwall's", 'Eclectic / Balearic', 'Sun', '11:00-00:00', "Love Dancin'"),
 ]
 
 SOUL_JAZZ = [
@@ -136,7 +137,7 @@ SOUL_JAZZ = [
     ('Gena feat Liv.e & Karriem Riggins', 'Hip-hop / Jazz', 'Sat', '17:00-18:00', 'Lush Life'),
     ('The Heliocentrics', 'Psych-funk-jazz', 'Fri', '14:10-15:10', 'Lush Life'),
     ('Momoko Gill', 'Jazz-soul vocalist', 'Sat', '13:30-14:20', 'Main Stage'),
-    ('Rogê', 'Brazilian soul', 'Fri', '22:10-23:00', "Tomorrow's Warriors Big Top"),
+    ('Rogê', 'Brazilian soul', 'Fri', '22:20-23:00', 'Lush Life'),
     ('Bel Cobain', 'Soul / R&B', 'Fri', '12:20-13:00', 'Main Stage'),
     ('The Zawose Queens', 'Tanzanian / Global', 'Thu', '14:40-15:30', 'Main Stage'),
     ('Ana Frango Elétrico', 'Brazilian pop', 'Sun', '16:30-17:30', 'Main Stage'),
@@ -168,15 +169,16 @@ SOUL_JAZZ = [
     ('Finka', "Tomorrow's Warriors showcase", 'Fri', '12:20-12:50', "Tomorrow's Warriors Big Top"),
     ('Holly Reinhardt', "Tomorrow's Warriors showcase", 'Fri', '14:15-14:55', "Tomorrow's Warriors Big Top"),
     ('Jobsearch', "Tomorrow's Warriors showcase", 'Fri', '17:35-18:15', "Tomorrow's Warriors Big Top"),
-    ('Plumm', "Tomorrow's Warriors showcase", 'Fri', '20:00-20:40', "Tomorrow's Warriors Big Top"),
+    ('Plumm', "Tomorrow's Warriors showcase", 'Fri', '19:50-20:40', "Tomorrow's Warriors Big Top"),
     ('Knats', "Tomorrow's Warriors showcase", 'Fri', '21:00-21:45', "Tomorrow's Warriors Big Top"),
 ]
 
-NOTE = ("Covers the festival's officially announced lineup (142 artists) plus a handful of extra gems "
-        "James dug up while researching Saturday night (I-Sha, Silva Snipa, Introspekt, rRoxymore, Ivy Lab, "
-        "Ceephax Acid Crew, plus a few dub/house legends like Mad Professor and DJ Lag). It does NOT cover "
-        "every single name on the smaller record-shop and community stages (Once In A Blue Moon, Love-Serve Bar, "
-        "Near Mint Record Store). There are 100+ more hyper-local selectors on the festival's own set-times app "
-        "if you want to dig deeper. Times are from We Out Here's Clashfinder as of 15 Aug 2026, so it is always "
-        "worth a recheck on the festival app closer to the day. Some artists play more than once across the weekend; "
-        "we've picked one representative slot each.")
+NOTE = ("This is a hand-picked selection, not the full programme. The official schedule has 565 sets "
+        "across 18 stages and we list 143 of them, so treat this as a shortlist for deciding who to "
+        "listen to, and the festival's own set-times page as the authority on where to stand. Four "
+        "stages are missing entirely (Once In A Blue Moon, Worldwide FM presents: WOH Radio, "
+        "Love-Serve Bar, Passenger Presents: Ground Tempo) and the stages that are here are not "
+        "complete either. Every day, time and stage below was checked against the official set times "
+        "on 15 Aug 2026 and all 143 agree; run verify.py to recheck, because the festival does move "
+        "things. Some artists play more than once across the weekend and we list one slot each, so "
+        "check the official page if your pick has another set.")

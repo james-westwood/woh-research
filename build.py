@@ -4,6 +4,8 @@ import re
 from urllib.parse import quote
 from data import ELECTRONIC, SOUL_JAZZ, VERIFIED, NOTE
 
+TOTAL = len(ELECTRONIC) + len(SOUL_JAZZ)
+
 ELEC_CATS = [
     ('Techno', ['techno', 'acid']),
     ('House', ['house']),
@@ -757,7 +759,7 @@ def build_page(title, standfirst, items, catmap, active_nav):
   </header>
 
   <nav class="pagenav">
-    <a href="index.html">All 142 names</a>
+    <a href="index.html">All {TOTAL} names</a>
     <a href="electronic.html"{' class="active"' if active_nav == 'elec' else ''}>Electronic</a>
     <a href="soul-jazz-afro.html"{' class="active"' if active_nav == 'sj' else ''}>Soul / Jazz / Afrobeat</a>
   </nav>
@@ -806,7 +808,7 @@ sj_page = build_page(
     SOUL_JAZZ, SJ_CATS, 'sj',
 )
 
-index_desc = ('All 142 acts at We Out Here 2026, sorted into electronic and soul/jazz/afrobeat, '
+index_desc = (f'All {TOTAL} acts at We Out Here 2026, sorted into electronic and soul/jazz/afrobeat, '
               'each with a mix to listen to before you decide.')
 
 index_page = f'''<!DOCTYPE html>
