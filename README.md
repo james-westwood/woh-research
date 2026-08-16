@@ -30,6 +30,12 @@ Every name is a link to that artist's own page, which carries the festival's wri
 page shows both her Thursday solo set and the Friday b2b billed as "BEATRICE M. & ALIA". The
 landing page lists all 143 names alphabetically as a way in.
 
+Most write-ups are the festival's own, taken from its listing and labelled as such. Where the
+festival has not written someone up, a blurb can go in the `BLURBS` dict in `data.py` with a list
+of sources, and the page then says "Written for this site, not by the festival" and links them.
+DJ Lag is the first of those. Keep every claim in one traceable to a source, and do not put set
+times in the prose, because the panel beside it already has them and stays right on its own.
+
 ## A note on genres
 
 The genre tags are editorial, not official. The festival publishes no genre data, so they are

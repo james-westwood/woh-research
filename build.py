@@ -5,7 +5,7 @@ import os
 import re
 import unicodedata
 from urllib.parse import quote
-from data import ELECTRONIC, SOUL_JAZZ, VERIFIED, NOTE
+from data import ELECTRONIC, SOUL_JAZZ, VERIFIED, NOTE, BLURBS
 
 TOTAL = len(ELECTRONIC) + len(SOUL_JAZZ)
 
@@ -38,17 +38,25 @@ def slug(name):
     return s or 'artist'
 
 def bio_for(name):
-    """The festival's blurb, matched on name tokens rather than exact string."""
+    """Our own blurb if we wrote one, otherwise the festival's.
+
+    Returns (text, sources) where sources is None for the festival's own copy,
+    so the page can say plainly whose words these are.
+    """
+    ours = BLURBS.get(name)
+    if ours:
+        return ours['text'], ours.get('sources') or []
+
     want = name_tokens(name)
     if not want:
-        return None
+        return None, None
     for official_name, text in BIOS.items():
         if name_tokens(official_name) == want:
-            return text
+            return text, None
     for official_name, text in BIOS.items():
-        if want and want <= name_tokens(official_name):
-            return text
-    return None
+        if want <= name_tokens(official_name):
+            return text, None
+    return None, None
 
 def official_sets_for(name, day=None, time=None, stage=None):
     """Every official set this artist appears in, b2b billings included.
@@ -940,7 +948,7 @@ def paragraphs(text, target=380):
 
 def artist_page(name, tag, day, time, stage, list_page, list_label):
     """One page per artist: the festival's own blurb, and every set they play."""
-    bio = bio_for(name)
+    bio, sources = bio_for(name)
     sets = official_sets_for(name, day, time, stage)
     ours = (day, start_minutes(time.partition('-')[0]))
 
@@ -980,7 +988,16 @@ def artist_page(name, tag, day, time, stage, list_page, list_label):
     links += (f'<a class="btn" href="{esc(mc_search(name))}" target="_blank" rel="noopener">'
               f'Search Mixcloud</a>')
 
-    if bio:
+    if bio and sources is not None:
+        # our own words, so say so and show where the facts came from
+        paras = ''.join(f'<p>{esc(p)}</p>' for p in bio.split('\n\n') if p.strip())
+        cited = ', '.join(f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(label)}</a>'
+                          for label, url in sources)
+        bio_html = f'''<div class="bio">{paras}
+        <p class="bio-source">Written for this site, not by the festival.
+        {'Sources: ' + cited + '.' if cited else ''}</p>
+      </div>'''
+    elif bio:
         paras = ''.join(f'<p>{esc(p)}</p>' for p in paragraphs(bio))
         bio_html = f'''<div class="bio">{paras or f'<p>{esc(bio)}</p>'}
         <p class="bio-source">Blurb from the festival's own listing at

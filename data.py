@@ -23,6 +23,43 @@ VERIFIED = {
     'Elliott Skinner': 'https://soundcloud.com/elliott-reed-skinner',
 }
 
+# Blurbs written for this site, for acts the festival has not written up itself.
+# These are shown labelled as ours, never as the festival's. Keep every claim
+# traceable to something in 'sources' and do not pad them out with adjectives.
+BLURBS = {
+    'DJ Lag': {
+        'text': (
+            "Lwazi Asanda Gwala grew up in Clermont, a township outside Durban, and is one of "
+            "the handful of producers who built gqom in the first place. The word is Zulu for a "
+            "drum or a hit, which tells you where the emphasis goes: the kick is broken up "
+            "rather than four to the floor, the arrangements are stripped back, and the whole "
+            "thing leans on drums and space instead of melody. He made the early tracks on "
+            "FruityLoops while he was still at school, and from 2012 Durban taxi drivers played "
+            "them to pull in passengers, which is how the sound got around the city before any "
+            "label was involved.\n\n"
+            "A 2015 Boiler Room session took it well beyond Durban, and London's Goon Club "
+            "Allstars released his self-titled EP in 2016. 'Ice Drop' and 'Umlilo' did the rest, "
+            "and the video for 'Ice Drop', shot around Clermont and KwaDabeka, ended up in the "
+            "Design Museum's electronic music exhibition in London. In 2019 he produced 'My "
+            "Power' for Beyoncé's 'The Lion King: The Gift', worked up from a track of his "
+            "called 'Drumming'.\n\n"
+            "His debut album 'Meeting With The King' (2022) is where he started calling it gqom "
+            "2.0, pulling amapiano, Afro house and Afro tech into the same room. 'Raptor', the "
+            "lead single, is a collaboration with Sinjin Hawke. 'Something Different' is on "
+            "there, and so is 'Yasho Leyonto' with Dladla Mshunqisi. It was nominated for Best "
+            "Gqom Album at the 2023 South African Music Awards. If you only know 'Ice Drop', the "
+            "album is where he opened the sound out, and it is the better preparation for a late "
+            "set."
+        ),
+        'sources': [
+            ('blackmajor.co.za', 'https://blackmajor.co.za/artist/dj-lag/'),
+            ('Wikipedia', 'https://en.wikipedia.org/wiki/DJ_Lag'),
+            ('DJ Mag', 'https://djmag.com/features/album-month-dj-lag-meeting-king'),
+            ('Resident Advisor', 'https://ra.co/reviews/34713'),
+        ],
+    },
+}
+
 # (name, tag, day, time, stage)
 ELECTRONIC = [
     ('Scientist', 'Dub', 'Sat', '14:00-15:30', 'The Bowl'),
