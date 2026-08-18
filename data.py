@@ -21,12 +21,62 @@ VERIFIED = {
     'Ge-ology': 'https://soundcloud.com/gillespeterson/ge-ology-in-the-mix',
     'DJ Spanish Fly': 'https://soundcloud.com/user-643553014/dj-spanish-fly-230724',
     'Elliott Skinner': 'https://soundcloud.com/elliott-reed-skinner',
+    'Ehua': 'https://www.factmag.com/2022/02/14/fact-mix-846-ehua/',
+    'Wheel Up': 'https://www.mixcloud.com/truthoughts/stay-at-home-sessions-wheelup/',
+    'Esa': 'https://soundcloud.com/dkmntl/dekmantel-podcast-037-esa',
+    'Juls': 'https://soundcloud.com/platform/juls-london',
 }
 
 # Blurbs written for this site, for acts the festival has not written up itself.
 # These are shown labelled as ours, never as the festival's. Keep every claim
 # traceable to something in 'sources' and do not pad them out with adjectives.
 BLURBS = {
+    'Ehua': {
+        'text': (
+            "Ehua is Italian-Ivorian, grew up in Pisa and has been in London for over a decade. "
+            "She builds tracks out of drums rather than melody: custom percussion samples, "
+            "intricate patterns, and a lot of sound design, sitting somewhere between hard drum, "
+            "bass music and experimental techno. Her first track 'New Moon' came out on femme "
+            "culture in 2018, followed the same November by the 'Diplozoon' EP.\n\n"
+            "'Aquamarine' on Nervous Horizon (23 April 2021) is the one to start with. Six "
+            "tracks built around the colour and movement of water, running 95 to 140bpm, from "
+            "sludgy broken beats through to drone techno, with her own voice on 'Black' as "
+            "spoken Italian played backwards.\n\n"
+            "She holds a long-running residency on Rinse FM, and before that a show on Radio "
+            "Raheem in Milan where she brought in Scratchclart, KG, TSVI and Air Max '97. Away "
+            "from music she co-runs GRIOT and co-edits GRIOTmag, which covers art, music and "
+            "fashion from Africa and the diaspora. Worth knowing before the weekend: she has "
+            "named gqom as a direct influence and singled out DJ Lag, who is also on this bill."
+        ),
+        'sources': [
+            ('Fact', 'https://www.factmag.com/2022/02/14/fact-mix-846-ehua/'),
+            ('DJ Mag', 'https://djmag.com/content/fresh-kicks-91-ehua'),
+            ('Bandcamp', 'https://ehua.bandcamp.com/album/aquamarine-ep'),
+            ('Rinse FM', 'https://www.rinse.fm/shows/ehua'),
+        ],
+    },
+    'Wheel Up': {
+        'text': (
+            "Danny Wheeler, who styles the name WheelUP, is from West London and is of "
+            "Zimbabwean and British descent. He spent years in jungle and drum & bass under his "
+            "own name, running the W10 Records label, before turning to the broken beat scene "
+            "that grew up in the same part of the city. Afronaut, who founded Bugz in the Attic "
+            "and helped invent the sound, gave him the WheelUP name, and Bugz in the Attic later "
+            "made him an honorary member. The lineage he plays in runs back through them to "
+            "4hero.\n\n"
+            "Bruk is broken beat: syncopated, off-grid drums at house tempo, with jazz and "
+            "boogie harmony over the top. His first record under the name was 'Self Healing "
+            "Machine' for Tru Thoughts, and the albums 'Good Love' (2021), 'We Are The Magic' "
+            "(2023) and 'Inner Light' followed on the same label, pulling in hip-hop, neo-soul "
+            "and nu-jazz and featuring Afronaut, Kaidi Tatham, Abacus and Tiawa among others."
+        ),
+        'sources': [
+            ('Tru Thoughts', 'https://tru-thoughts.co.uk/artists/wheelup/'),
+            ('Tru Thoughts, new signing',
+             'https://tru-thoughts.co.uk/new-signing-wheelup-danny-wheelers-bruk-moniker/'),
+            ('Resident Advisor', 'https://ra.co/dj/wheelup/biography'),
+        ],
+    },
     'DJ Lag': {
         'text': (
             "Lwazi Asanda Gwala grew up in Clermont, a township outside Durban, and is one of "
