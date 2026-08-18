@@ -899,22 +899,22 @@
   "artist": "LUKE UNA",
   "day": "Fri",
   "stage": "Rhythm Corner",
-  "start": "01:30",
+  "start": "01:00",
   "end": "04:00"
  },
  {
   "artist": "PALMS TRAX",
   "day": "Fri",
   "stage": "Rhythm Corner",
-  "start": "23:30",
-  "end": "01:30"
+  "start": "23:00",
+  "end": "01:00"
  },
  {
   "artist": "TAMA SUMO & LAKUTI",
   "day": "Fri",
   "stage": "Rhythm Corner",
   "start": "20:30",
-  "end": "23:30"
+  "end": "23:00"
  },
  {
   "artist": "Nightmares On Wax",
@@ -1400,7 +1400,7 @@
   "end": "18:30"
  },
  {
-  "artist": "Speakers Corner Quartet Celebrates The Music of Arthur Russell",
+  "artist": "Speakers Corner Quartet Plus Guests",
   "day": "Fri",
   "stage": "Brawnswood",
   "start": "16:00",

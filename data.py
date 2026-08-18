@@ -114,14 +114,14 @@ ELECTRONIC = [
     ('Kenny Dope', 'House', 'Fri', '00:30-02:30', 'The Grove'),
     ('King Britt', 'House / Disco / Techno', 'Sat', '17:00-20:00', 'The Bowl'),
     ('Lovie', 'House / Disco', 'Sun', '14:50-16:10', 'The Bowl'),
-    ('Luke Una', 'House / Balearic', 'Fri', '01:30-04:00', 'Rhythm Corner'),
+    ('Luke Una', 'House / Balearic', 'Fri', '01:00-04:00', 'Rhythm Corner'),
     ('Mantra', 'Jungle / Drum & Bass', 'Sun', '22:00-23:00', 'The Grove'),
     ('Marcia Carr', 'Dancehall / Bass', 'Fri', '17:30-19:00', 'Rhythm Corner'),
     ('Mr. Disco Kid', 'Disco', 'Fri', '01:00-03:00', 'Roller Rink'),
     ('Mr Scruff, DJ Spinna & Vanessa Freeman', 'House / Breaks / Eclectic', 'Fri', '15:00-21:00', "Love Dancin'"),
     ('Nightmares On Wax', 'Downtempo / House', 'Fri', '19:00-20:30', 'Rhythm Corner'),
     ('Nono Gigsta', 'Genre-warping (jungle/house/dub)', 'Sat', '02:00-04:00', 'The Grove'),
-    ('Palms Trax', 'House', 'Fri', '23:30-01:30', 'Rhythm Corner'),
+    ('Palms Trax', 'House', 'Fri', '23:00-01:00', 'Rhythm Corner'),
     ('Pariah', 'Techno / Bass', 'Fri', '21:30-23:00', 'The Bowl'),
     ('DJ Perception', 'UK Garage', 'Fri', '23:00-00:30', "Tomorrow's Warriors Big Top"),
     ('Poly-Ritmo', 'Afro-Latin club', 'Sat', '15:00-17:00', "Love Dancin'"),
@@ -129,7 +129,7 @@ ELECTRONIC = [
     ('Sadar Bahar', 'Disco / House digger', 'Sat', '02:00-04:00', 'The Bowl'),
     ('Salute', 'UK Bass / Broken Beat', 'Sun', '19:00-21:00', 'Rhythm Corner'),
     ('Shy One', 'Eclectic / Broken Beat', 'Fri', '00:30-02:30', "Love Dancin'"),
-    ('Tama Sumo & Lakuti', 'House / Techno', 'Fri', '20:30-23:30', 'Rhythm Corner'),
+    ('Tama Sumo & Lakuti', 'House / Techno', 'Fri', '20:30-23:00', 'Rhythm Corner'),
     ('Tasha', 'Drum & Bass / Techno', 'Fri', '02:30-04:00', 'The Bowl'),
     ('Tone B Nimble', 'Broken Beat', 'Sun', '16:10-17:40', 'The Bowl'),
     ('Trafford (Nick Williams memorial set)', 'House / Disco', 'Sat', '13:00-15:00', "Love Dancin'"),
@@ -148,6 +148,11 @@ ELECTRONIC = [
     ('Greg Wilson', 'Disco / Electro', 'Sun', '20:30-22:00', 'Roller Rink'),
     ('Winston Hazel & Josey Rebelle', 'House / Techno', 'Sun', '18:00-19:30', 'The Grove'),
     ("Another Sunday Afternoon At Dingwall's", 'Eclectic / Balearic', 'Sun', '11:00-00:00', "Love Dancin'"),
+    ('Esa', 'Afro-house / Techno', 'Sat', '20:00-22:00', 'Beat Hotel x Ilegal Mezcal'),
+    ('Anz b2b Commodo', 'UK Bass / Club', 'Thu', '22:00-00:00', 'Carhartt WIP'),
+    ('DJ Plead', 'Percussive club', 'Thu', '22:00-23:00', 'Lemon Lounge'),
+    ('Wheel Up', 'Broken Beat / Bruk', 'Sun', '21:30-22:30', 'Near Mint Record Store'),
+    ('Pamoja Disco Club', 'Disco / House / Global', 'Sun', '22:00-23:00', 'Once In A Blue Moon'),
 ]
 
 SOUL_JAZZ = [
@@ -208,6 +213,8 @@ SOUL_JAZZ = [
     ('Jobsearch', "Tomorrow's Warriors showcase", 'Fri', '17:35-18:15', "Tomorrow's Warriors Big Top"),
     ('Plumm', "Tomorrow's Warriors showcase", 'Fri', '19:50-20:40', "Tomorrow's Warriors Big Top"),
     ('Knats', "Tomorrow's Warriors showcase", 'Fri', '21:00-21:45', "Tomorrow's Warriors Big Top"),
+    ('Juls', 'Afrobeats / Highlife', 'Thu', '20:30-22:30', 'Rhythm Corner'),
+    ('afromerm', 'Electronic / Live', 'Sat', '11:00-12:00', 'Lemon Lounge'),
 ]
 
 NOTE = ("This is a hand-picked selection, not the full programme. The official schedule has 565 sets "

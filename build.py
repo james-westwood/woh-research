@@ -88,6 +88,12 @@ ELEC_CATS = [
     ('Disco / Boogie', ['disco', 'boogie', 'edits']),
     ('Eclectic / Global', ['eclectic', 'global', 'afro', 'balearic', 'brazilian', 'nu-jazz',
                            'north african', 'latin', 'soul', 'funk', 'hip-hop']),
+    # Additive, and deliberately overlapping the buckets above: the African and
+    # diaspora club sounds are spread across Garage / Bass (gqom), House
+    # (afro-house) and Eclectic / Global (north african), so there was no single
+    # filter that collected them. Categories are multi-label, so nothing moves.
+    ('Afro / Diaspora club', ['afro', 'gqom', 'north african', 'kwaito', 'amapiano',
+                              'afrobeats', 'highlife', 'bruk']),
 ]
 
 SJ_CATS = [
