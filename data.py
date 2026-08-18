@@ -203,6 +203,7 @@ ELECTRONIC = [
     ('DJ Plead', 'Percussive club', 'Thu', '22:00-23:00', 'Lemon Lounge'),
     ('Wheel Up', 'Broken Beat / Bruk', 'Sun', '21:30-22:30', 'Near Mint Record Store'),
     ('Pamoja Disco Club', 'Disco / House / Global', 'Sun', '22:00-23:00', 'Once In A Blue Moon'),
+    ('Juls', 'Afrobeats / Highlife', 'Thu', '20:30-22:30', 'Rhythm Corner'),
 ]
 
 SOUL_JAZZ = [
@@ -263,7 +264,6 @@ SOUL_JAZZ = [
     ('Jobsearch', "Tomorrow's Warriors showcase", 'Fri', '17:35-18:15', "Tomorrow's Warriors Big Top"),
     ('Plumm', "Tomorrow's Warriors showcase", 'Fri', '19:50-20:40', "Tomorrow's Warriors Big Top"),
     ('Knats', "Tomorrow's Warriors showcase", 'Fri', '21:00-21:45', "Tomorrow's Warriors Big Top"),
-    ('Juls', 'Afrobeats / Highlife', 'Thu', '20:30-22:30', 'Rhythm Corner'),
     ('afromerm', 'Electronic / Live', 'Sat', '11:00-12:00', 'Lemon Lounge'),
 ]
 
