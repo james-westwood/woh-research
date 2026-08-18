@@ -896,7 +896,7 @@ def build_page(title, standfirst, items, catmap, active_nav):
   <nav class="pagenav">
     <a href="index.html">All {TOTAL} names</a>
     <a href="electronic.html"{' class="active"' if active_nav == 'elec' else ''}>Electronic</a>
-    <a href="soul-jazz-afro.html"{' class="active"' if active_nav == 'sj' else ''}>Soul / Jazz / Afrobeat</a>
+    <a href="soul-jazz-afro.html"{' class="active"' if active_nav == 'sj' else ''}>Soul / Jazz / Hip-hop</a>
   </nav>
 
   <input class="searchbox" id="search" type="search" autocomplete="off"
@@ -1062,7 +1062,7 @@ elec_page = build_page(
     ELECTRONIC, ELEC_CATS, 'elec',
 )
 sj_page = build_page(
-    'Soul, Jazz &amp; Afrobeat',
+    'Soul, Jazz &amp; Hip-hop',
     'Live bands, jazz, soul, hip-hop and global sounds: the other half of the bill.',
     SOUL_JAZZ, SJ_CATS, 'sj',
 )
@@ -1113,7 +1113,7 @@ index_page = f'''<!DOCTYPE html>
     </a>
     <a class="list-tile" href="soul-jazz-afro.html">
       <span class="list-count">{len(SOUL_JAZZ)} sets</span>
-      <h2>Soul, Jazz &amp; Afrobeat</h2>
+      <h2>Soul, Jazz &amp; Hip-hop</h2>
       <p>Live bands, jazz, soul, hip-hop and global sounds, which is most of what happens
          before dark.</p>
     </a>
@@ -1129,7 +1129,7 @@ index_page = f'''<!DOCTYPE html>
 os.makedirs('artists', exist_ok=True)
 written, multi = set(), 0
 for items, list_page, list_label in ((ELECTRONIC, 'electronic.html', 'Electronic'),
-                                     (SOUL_JAZZ, 'soul-jazz-afro.html', 'Soul / Jazz / Afrobeat')):
+                                     (SOUL_JAZZ, 'soul-jazz-afro.html', 'Soul / Jazz / Hip-hop')):
     for name, tag, day, time, stage in items:
         path = os.path.join('artists', f'{slug(name)}.html')
         if path in written:

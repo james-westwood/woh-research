@@ -8,8 +8,9 @@ weekend starts, rather than reading a name on a stage and hoping.
 
 The lineup is split into two lists, because in practice you plan around them separately:
 
-- **Electronic** (86 sets): dub and dubstep, techno, house, electro, garage, drum & bass.
-- **Soul, Jazz & Afrobeat** (57 sets): live bands, jazz, soul, hip-hop and global sounds.
+- **Electronic** (92 sets): dub and dubstep, techno, house, electro, garage, drum & bass,
+  gqom and afro-house.
+- **Soul, Jazz & Hip-hop** (58 sets): live bands, jazz, soul, rap and global sounds.
 
 Both lists run in chronological order, and filter by day, by sound and by stage, plus a search
 by name. Sounds and stages are additive, so selecting Techno and House shows both. Every set
@@ -21,14 +22,14 @@ the Saturday evening sets rather than before the Saturday afternoon ones. Saturd
 comes out as I-Sha 20:00, Shackleton 22:00, re:ni 23:00, Blawan 01:00, Nono Gigsta 02:00, which
 is how you would actually stand there and watch it.
 
-Nineteen artists have a specific mix picked out and marked "Play mix"; the rest link to a
+Twenty-three artists have a specific mix picked out and marked "Play mix"; the rest link to a
 SoundCloud and Mixcloud search so you can dig yourself.
 
 Every name is a link to that artist's own page, which carries the festival's write-up of them and
-**every set they play**, not just the one on the list. That matters more than expected: 31 of the
-143 play more than once, and some of those are b2b billings you would otherwise miss, so AliA's
+**every set they play**, not just the one on the list. That matters more than expected: 30 of the
+150 play more than once, and some of those are b2b billings you would otherwise miss, so AliA's
 page shows both her Thursday solo set and the Friday b2b billed as "BEATRICE M. & ALIA". The
-landing page lists all 143 names alphabetically as a way in.
+landing page lists all 150 names alphabetically as a way in.
 
 Most write-ups are the festival's own, taken from its listing and labelled as such. Where the
 festival has not written someone up, a blurb can go in the `BLURBS` dict in `data.py` with a list
@@ -60,7 +61,7 @@ python3 build.py
 ```
 
 That regenerates `index.html`, `electronic.html`, `soul-jazz-afro.html`, `style.css`, `app.js`
-and the 143 pages in `artists/`. Edit `data.py` or `build.py`, never the generated files, or your
+and the 150 pages in `artists/`. Edit `data.py` or `build.py`, never the generated files, or your
 changes get overwritten on the next build.
 
 `build.py` never touches the network. It reads two committed snapshots of the official site,
@@ -70,7 +71,7 @@ refreshed by `fetch_official.py` when the festival changes something.
 ## Coverage and caveats
 
 **This is a shortlist, not the full programme.** The official schedule has 565 sets across 18
-stages. This site lists 143 of them. Four stages are missing entirely (Once In A Blue Moon,
+stages. This site lists 150 of them. Four stages are missing entirely (Once In A Blue Moon,
 Worldwide FM presents: WOH Radio, Love-Serve Bar, Passenger Presents: Ground Tempo) and the
 stages that are included are not complete either, so the festival's own set-times page stays the
 authority on where to stand. Where an artist plays more than once, one slot is listed.
@@ -94,6 +95,11 @@ GUESTS: ...".
 Running this on 15 August 2026 caught seven wrong entries, since fixed: V.I.V.E.K out by 90
 minutes, Introspekt on the wrong day, Rogê on the wrong stage, and start or end times out on
 Josey Rebelle, Plumm, Jamz Supernova and Pariah. All 143 now agree with the official listing.
+
+Running it again on 18 August 2026 caught three more, since fixed: Friday at Rhythm Corner
+had shifted, moving Tama Sumo & Lakuti, Palms Trax and Luke Una. The same refresh showed the
+festival has rebilled the Friday Speakers Corner Quartet show as "Plus Guests", which is why
+that artist page now finds one of their sets instead of two. All 150 agree.
 
 Built for the group chats. This is not official festival material and has nothing to do with the
 organisers.
