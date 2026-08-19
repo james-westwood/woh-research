@@ -200,7 +200,7 @@ ELECTRONIC = [
     ("Another Sunday Afternoon At Dingwall's", 'Eclectic / Balearic', 'Sun', '11:00-00:00', "Love Dancin'"),
     ('Esa', 'Afro-house / Techno', 'Sat', '20:00-22:00', 'Beat Hotel x Ilegal Mezcal'),
     ('Anz b2b Commodo', 'UK Bass / Club', 'Thu', '22:00-00:00', 'Carhartt WIP'),
-    ('DJ Plead', 'Percussive club', 'Thu', '22:00-23:00', 'Lemon Lounge'),
+    ('DJ Plead', 'Percussive club / Lebanese', 'Thu', '22:00-23:00', 'Lemon Lounge'),
     ('Wheel Up', 'Broken Beat / Bruk', 'Sun', '21:30-22:30', 'Near Mint Record Store'),
     ('Pamoja Disco Club', 'Disco / House / Global', 'Sun', '22:00-23:00', 'Once In A Blue Moon'),
     ('Juls', 'Afrobeats / Highlife', 'Thu', '20:30-22:30', 'Rhythm Corner'),

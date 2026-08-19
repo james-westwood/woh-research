@@ -87,7 +87,8 @@ ELEC_CATS = [
     ('Electro / Broken Beat', ['broken beat', 'electro', 'experimental', 'electronic', 'ambient']),
     ('Disco / Boogie', ['disco', 'boogie', 'edits']),
     ('Eclectic / Global', ['eclectic', 'global', 'afro', 'balearic', 'brazilian', 'nu-jazz',
-                           'north african', 'latin', 'soul', 'funk', 'hip-hop']),
+                           'north african', 'latin', 'soul', 'funk', 'hip-hop',
+                           'percussive', 'lebanese']),
     # Additive, and deliberately overlapping the buckets above: the African and
     # diaspora club sounds are spread across Garage / Bass (gqom), House
     # (afro-house) and Eclectic / Global (north african), so there was no single
@@ -123,11 +124,11 @@ def base_name(name):
 def sc_search(name):
     return f"https://soundcloud.com/search?q={quote(base_name(name))}"
 
-def mc_search(name):
-    # /search/?q= and /search?q= both 301 to the Mixcloud homepage and throw the
-    # query away, which is why the phone app ended up searching for "search".
-    # /search/cloudcasts/?q= is the one that survives, and cloudcasts means mixes.
-    return f"https://www.mixcloud.com/search/cloudcasts/?q={quote(base_name(name))}"
+# Mixcloud has no linkable web search. /search/?q= and /search?q= 301 to the
+# homepage and drop the query; /search/cloudcasts/?q= answers 200 but renders
+# Mixcloud's own "Page Not Found". Their docs are explicit that search is an API
+# endpoint (api.mixcloud.com/search/?q=&type=cloudcast), not a web route, so the
+# only honest Mixcloud link is a direct one to a specific mix. See MIXCLOUD.md.
 
 def yt_search(name):
     """A link the phone apps do honour, for when SoundCloud's swallows the query."""
@@ -165,8 +166,6 @@ def set_html(name, tag, day, time, stage, catmap):
                   f'<span aria-hidden="true">&#9654;</span> Play mix</a>')
     links += (f'<a class="btn" href="{esc(sc_search(name))}" target="_blank" rel="noopener">'
               f'Search SoundCloud</a>')
-    links += (f'<a class="btn" href="{esc(mc_search(name))}" target="_blank" rel="noopener">'
-              f'Search Mixcloud</a>')
     links += (f'<a class="btn" href="{esc(yt_search(name))}" target="_blank" rel="noopener">'
               f'Search YouTube</a>')
 
@@ -1001,8 +1000,6 @@ def artist_page(name, tag, day, time, stage, list_page, list_label):
                   f'<span aria-hidden="true">&#9654;</span> Play mix</a>')
     links += (f'<a class="btn" href="{esc(sc_search(name))}" target="_blank" rel="noopener">'
               f'Search SoundCloud</a>')
-    links += (f'<a class="btn" href="{esc(mc_search(name))}" target="_blank" rel="noopener">'
-              f'Search Mixcloud</a>')
     links += (f'<a class="btn" href="{esc(yt_search(name))}" target="_blank" rel="noopener">'
               f'Search YouTube</a>')
 
