@@ -65,20 +65,20 @@ and the 150 pages in `artists/`. Edit `data.py` or `build.py`, never the generat
 changes get overwritten on the next build.
 
 `build.py` never touches the network. It reads two committed snapshots of the official site,
-`official_schedule.json` (all 565 sets) and `artist_bios.json` (179 write-ups), which are
+`official_schedule.json` (all 568 sets) and `artist_bios.json` (180 write-ups), which are
 refreshed by `fetch_official.py` when the festival changes something.
 
 ## Coverage and caveats
 
-**This is a shortlist, not the full programme.** The official schedule has 565 sets across 18
-stages. This site lists 150 of them. Four stages are missing entirely (Once In A Blue Moon,
-Worldwide FM presents: WOH Radio, Love-Serve Bar, Passenger Presents: Ground Tempo) and the
+**This is a shortlist, not the full programme.** The official schedule has 568 sets across 17
+stages. This site lists 150 of them. Three stages are missing entirely (Worldwide FM presents:
+WOH Radio, Love-Serve Bar, Passenger Presents: Ground Tempo) and the
 stages that are included are not complete either, so the festival's own set-times page stays the
 authority on where to stand. Where an artist plays more than once, one slot is listed.
 
 ## Checking the data
 
-`verify.py` fetches the official set-times page, parses all 565 listings out of it, and diffs
+`verify.py` fetches the official set-times page, parses all 568 listings out of it, and diffs
 them against `data.py`:
 
 ```bash
@@ -99,7 +99,24 @@ Josey Rebelle, Plumm, Jamz Supernova and Pariah. All 143 now agree with the offi
 Running it again on 18 August 2026 caught three more, since fixed: Friday at Rhythm Corner
 had shifted, moving Tama Sumo & Lakuti, Palms Trax and Luke Una. The same refresh showed the
 festival has rebilled the Friday Speakers Corner Quartet show as "Plus Guests", which is why
-that artist page now finds one of their sets instead of two. All 150 agree.
+that artist page now finds one of their sets instead of two.
+
+On 19 August 2026 it caught the other half of that Rhythm Corner move, which had gone the same
+30 minutes earlier on the Saturday: Alix Perez ft SP:MC, Calibre ft SP:MC and Ivy Lab. All 150
+agree. The official timetable is now 568 sets across 17 stages, Near Mint Record Signings having
+been folded into Near Mint Record Store.
+
+## The search links
+
+The Mixcloud button used to point at `mixcloud.com/search/?q=`, which 301s to the homepage and
+discards the query, so the phone app fell back to searching for the word "search". The working
+endpoint is `mixcloud.com/search/cloudcasts/?q=`, and cloudcasts means mixes rather than users.
+
+SoundCloud is a different problem and not one this site can fix. The URL is correct and keeps the
+query on the web, but `soundcloud.com`, `www.soundcloud.com` and `m.soundcloud.com` all publish
+Android app-links for `com.soundcloud.android`, so the app claims the link and opens its own
+search screen without the term. There is no host left to point at that dodges it. A YouTube
+search button now sits alongside as the one that does reliably survive on a phone.
 
 Built for the group chats. This is not official festival material and has nothing to do with the
 organisers.

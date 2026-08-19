@@ -124,7 +124,15 @@ def sc_search(name):
     return f"https://soundcloud.com/search?q={quote(base_name(name))}"
 
 def mc_search(name):
-    return f"https://www.mixcloud.com/search/?q={quote(base_name(name))}"
+    # /search/?q= and /search?q= both 301 to the Mixcloud homepage and throw the
+    # query away, which is why the phone app ended up searching for "search".
+    # /search/cloudcasts/?q= is the one that survives, and cloudcasts means mixes.
+    return f"https://www.mixcloud.com/search/cloudcasts/?q={quote(base_name(name))}"
+
+def yt_search(name):
+    """A link the phone apps do honour, for when SoundCloud's swallows the query."""
+    return ("https://www.youtube.com/results?search_query="
+            + quote(base_name(name) + ' dj mix'))
 
 DAYS = ['Thu', 'Fri', 'Sat', 'Sun']
 DAY_NAMES = {'Thu': 'Thu 20', 'Fri': 'Fri 21', 'Sat': 'Sat 22', 'Sun': 'Sun 23'}
@@ -159,6 +167,8 @@ def set_html(name, tag, day, time, stage, catmap):
               f'Search SoundCloud</a>')
     links += (f'<a class="btn" href="{esc(mc_search(name))}" target="_blank" rel="noopener">'
               f'Search Mixcloud</a>')
+    links += (f'<a class="btn" href="{esc(yt_search(name))}" target="_blank" rel="noopener">'
+              f'Search YouTube</a>')
 
     return f'''<article class="set" data-day="{esc(day)}" data-cat="{esc('|'.join(cats))}" data-stage="{esc(stage)}" data-name="{esc(name.lower())}">
       <div class="clock">
@@ -993,6 +1003,8 @@ def artist_page(name, tag, day, time, stage, list_page, list_label):
               f'Search SoundCloud</a>')
     links += (f'<a class="btn" href="{esc(mc_search(name))}" target="_blank" rel="noopener">'
               f'Search Mixcloud</a>')
+    links += (f'<a class="btn" href="{esc(yt_search(name))}" target="_blank" rel="noopener">'
+              f'Search YouTube</a>')
 
     if bio and sources is not None:
         # our own words, so say so and show where the facts came from

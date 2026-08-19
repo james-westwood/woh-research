@@ -56,18 +56,18 @@
   "end": "19:20"
  },
  {
-  "artist": "Audrey Powne",
-  "day": "Thu",
-  "stage": "Lush Life",
-  "start": "15:20",
-  "end": "16:20"
- },
- {
   "artist": "Keiyaa",
   "day": "Thu",
   "stage": "Lush Life",
   "start": "16:50",
   "end": "17:40"
+ },
+ {
+  "artist": "Audrey Powne",
+  "day": "Thu",
+  "stage": "Lush Life",
+  "start": "15:20",
+  "end": "16:20"
  },
  {
   "artist": "SETWUN",
@@ -140,13 +140,6 @@
   "end": "22:00"
  },
  {
-  "artist": "BRADLEY ZERO",
-  "day": "Thu",
-  "stage": "The Bowl",
-  "start": "19:00",
-  "end": "22:00"
- },
- {
   "artist": "MARVIN JUPITER",
   "day": "Thu",
   "stage": "The Bowl",
@@ -159,6 +152,13 @@
   "stage": "The Bowl",
   "start": "15:00",
   "end": "16:00"
+ },
+ {
+  "artist": "BRADLEY ZERO",
+  "day": "Thu",
+  "stage": "The Bowl",
+  "start": "19:00",
+  "end": "22:00"
  },
  {
   "artist": "Glenn Underground",
@@ -280,18 +280,18 @@
   "end": "00:00"
  },
  {
-  "artist": "SORCHA BRIDGE B2B MIKE",
-  "day": "Thu",
-  "stage": "Roller Rink",
-  "start": "18:30",
-  "end": "20:00"
- },
- {
   "artist": "Giles Smith & Alexander Nut",
   "day": "Thu",
   "stage": "Roller Rink",
   "start": "20:00",
   "end": "22:30"
+ },
+ {
+  "artist": "SORCHA BRIDGE B2B MIKE",
+  "day": "Thu",
+  "stage": "Roller Rink",
+  "start": "18:30",
+  "end": "20:00"
  },
  {
   "artist": "Fairhurst",
@@ -693,18 +693,18 @@
   "end": "20:30"
  },
  {
-  "artist": "GILES HANH",
-  "day": "Thu",
-  "stage": "Love-Serve Bar",
-  "start": "17:00",
-  "end": "19:00"
- },
- {
   "artist": "JOE MUGGS",
   "day": "Thu",
   "stage": "Love-Serve Bar",
   "start": "16:00",
   "end": "17:00"
+ },
+ {
+  "artist": "GILES HANH",
+  "day": "Thu",
+  "stage": "Love-Serve Bar",
+  "start": "17:00",
+  "end": "19:00"
  },
  {
   "artist": "DAN MEDHURST",
@@ -742,13 +742,6 @@
   "end": "21:00"
  },
  {
-  "artist": "JO DRESSLER",
-  "day": "Thu",
-  "stage": "Once In A Blue Moon",
-  "start": "18:00",
-  "end": "19:00"
- },
- {
   "artist": "AN LAWTON",
   "day": "Thu",
   "stage": "Once In A Blue Moon",
@@ -756,11 +749,11 @@
   "end": "20:00"
  },
  {
-  "artist": "MOLLY POP",
+  "artist": "JO DRESSLER",
   "day": "Thu",
   "stage": "Once In A Blue Moon",
-  "start": "17:00",
-  "end": "18:00"
+  "start": "18:00",
+  "end": "19:00"
  },
  {
   "artist": "TAXI",
@@ -768,6 +761,13 @@
   "stage": "Once In A Blue Moon",
   "start": "16:00",
   "end": "17:00"
+ },
+ {
+  "artist": "MOLLY POP",
+  "day": "Thu",
+  "stage": "Once In A Blue Moon",
+  "start": "17:00",
+  "end": "18:00"
  },
  {
   "artist": "MISSY A",
@@ -1344,18 +1344,18 @@
   "end": "14:00"
  },
  {
-  "artist": "ZAWOSE QUEENS (LIVE)",
-  "day": "Fri",
-  "stage": "Lemon Lounge",
-  "start": "12:00",
-  "end": "13:00"
- },
- {
   "artist": "ZESTY ZUMBA",
   "day": "Fri",
   "stage": "Lemon Lounge",
   "start": "11:00",
   "end": "12:00"
+ },
+ {
+  "artist": "ZAWOSE QUEENS (LIVE)",
+  "day": "Fri",
+  "stage": "Lemon Lounge",
+  "start": "12:00",
+  "end": "13:00"
  },
  {
   "artist": "ELLIE & NAIMA ADAMS",
@@ -1505,11 +1505,11 @@
   "end": "14:00"
  },
  {
-  "artist": "Luke Una: A Worldwide Breakfast",
+  "artist": "160U: SIMMS",
   "day": "Fri",
-  "stage": "Worldwide FM presents : WOH Radio",
-  "start": "11:00",
-  "end": "13:00"
+  "stage": "Carhartt WIP",
+  "start": "21:00",
+  "end": "22:00"
  },
  {
   "artist": "ZORA JONES",
@@ -1529,15 +1529,15 @@
   "artist": "160 UNITY: DJ SPINN",
   "day": "Fri",
   "stage": "Carhartt WIP",
-  "start": "22:30",
-  "end": "23:30"
+  "start": "23:30",
+  "end": "00:30"
  },
  {
   "artist": "160 UNITY: CRAIC DAVID, SOHOTSOSPICY & SEB",
   "day": "Fri",
   "stage": "Carhartt WIP",
-  "start": "21:00",
-  "end": "22:30"
+  "start": "22:00",
+  "end": "23:30"
  },
  {
   "artist": "THEMPRESS",
@@ -1628,6 +1628,13 @@
   "day": "Fri",
   "stage": "Beat Hotel x Ilegal Mezcal",
   "start": "14:00",
+  "end": "16:00"
+ },
+ {
+  "artist": "Outside is a Vibe",
+  "day": "Fri",
+  "stage": "Passenger Presents: Ground Tempo",
+  "start": "15:00",
   "end": "16:00"
  },
  {
@@ -2030,6 +2037,13 @@
   "end": "16:30"
  },
  {
+  "artist": "BARNEY KEEN",
+  "day": "Sat",
+  "stage": "Lush Life",
+  "start": "11:40",
+  "end": "12:20"
+ },
+ {
   "artist": "Steam Down",
   "day": "Sat",
   "stage": "Lush Life",
@@ -2044,18 +2058,25 @@
   "end": "13:40"
  },
  {
-  "artist": "BARNEY KEEN",
-  "day": "Sat",
-  "stage": "Lush Life",
-  "start": "11:40",
-  "end": "12:20"
- },
- {
   "artist": "Ivy Lab",
   "day": "Sat",
   "stage": "Rhythm Corner",
-  "start": "02:30",
+  "start": "02:00",
   "end": "04:00"
+ },
+ {
+  "artist": "CALIBRE FT. SP:MC",
+  "day": "Sat",
+  "stage": "Rhythm Corner",
+  "start": "00:00",
+  "end": "02:00"
+ },
+ {
+  "artist": "ALIX PEREZ FT. SP:MC",
+  "day": "Sat",
+  "stage": "Rhythm Corner",
+  "start": "22:30",
+  "end": "00:00"
  },
  {
   "artist": "SILVA SNIPA",
@@ -2063,20 +2084,6 @@
   "stage": "Rhythm Corner",
   "start": "21:00",
   "end": "22:30"
- },
- {
-  "artist": "CALIBRE FT. SP:MC",
-  "day": "Sat",
-  "stage": "Rhythm Corner",
-  "start": "00:30",
-  "end": "02:30"
- },
- {
-  "artist": "ALIX PEREZ FT. SP:MC",
-  "day": "Sat",
-  "stage": "Rhythm Corner",
-  "start": "22:30",
-  "end": "00:30"
  },
  {
   "artist": "DJ Flight",
@@ -2100,13 +2107,6 @@
   "end": "17:00"
  },
  {
-  "artist": "RE:NI",
-  "day": "Sat",
-  "stage": "The Grove",
-  "start": "23:00",
-  "end": "01:00"
- },
- {
   "artist": "SHACKLETON (LIVE)",
   "day": "Sat",
   "stage": "The Grove",
@@ -2119,6 +2119,13 @@
   "stage": "The Grove",
   "start": "20:00",
   "end": "22:00"
+ },
+ {
+  "artist": "RE:NI",
+  "day": "Sat",
+  "stage": "The Grove",
+  "start": "23:00",
+  "end": "01:00"
  },
  {
   "artist": "NONO GIGSTA",
@@ -2205,20 +2212,6 @@
   "end": "23:00"
  },
  {
-  "artist": "Mali Sheard",
-  "day": "Sat",
-  "stage": "Tomorrow's Warriors Big Top",
-  "start": "18:45",
-  "end": "19:30"
- },
- {
-  "artist": "KASSA GJ QUARTET",
-  "day": "Sat",
-  "stage": "Tomorrow's Warriors Big Top",
-  "start": "17:30",
-  "end": "18:15"
- },
- {
   "artist": "Cube Legacy Band",
   "day": "Sat",
   "stage": "Tomorrow's Warriors Big Top",
@@ -2238,6 +2231,20 @@
   "stage": "Tomorrow's Warriors Big Top",
   "start": "20:00",
   "end": "20:40"
+ },
+ {
+  "artist": "Mali Sheard",
+  "day": "Sat",
+  "stage": "Tomorrow's Warriors Big Top",
+  "start": "18:45",
+  "end": "19:30"
+ },
+ {
+  "artist": "KASSA GJ QUARTET",
+  "day": "Sat",
+  "stage": "Tomorrow's Warriors Big Top",
+  "start": "17:30",
+  "end": "18:15"
  },
  {
   "artist": "BXL x LDN INTERPLAY III",
@@ -2506,7 +2513,7 @@
   "end": "00:00"
  },
  {
-  "artist": "Marina & Yazmin Lacey",
+  "artist": "MARINA GB & Yazmin Lacey",
   "day": "Sat",
   "stage": "Brawnswood",
   "start": "21:00",
@@ -2562,7 +2569,7 @@
   "end": "14:30"
  },
  {
-  "artist": "Dave Okumu & Tom Skinner",
+  "artist": "OHS (Dave Okumu | Tom Herbert | Tom Skinner)",
   "day": "Sat",
   "stage": "Brawnswood",
   "start": "13:00",
@@ -2639,18 +2646,18 @@
   "end": "14:00"
  },
  {
-  "artist": "Colleen 'Cosmo' Murphy: Balearic Breakfast",
-  "day": "Sat",
-  "stage": "Worldwide FM presents : WOH Radio",
-  "start": "11:00",
-  "end": "13:00"
- },
- {
   "artist": "Admin, Living Room Dance Club & Yadava: Liv Togevver, Britfunk and the sounds of multi-cultural Britain.",
   "day": "Sat",
   "stage": "Worldwide FM presents : WOH Radio",
   "start": "14:00",
   "end": "15:00"
+ },
+ {
+  "artist": "Colleen 'Cosmo' Murphy: Balearic Breakfast",
+  "day": "Sat",
+  "stage": "Worldwide FM presents : WOH Radio",
+  "start": "11:00",
+  "end": "13:00"
  },
  {
   "artist": "Guedra Guedra",
@@ -2762,6 +2769,13 @@
   "day": "Sat",
   "stage": "Beat Hotel x Ilegal Mezcal",
   "start": "14:00",
+  "end": "16:00"
+ },
+ {
+  "artist": "The Power of Bird Song with Lira Valencia",
+  "day": "Sat",
+  "stage": "Passenger Presents: Ground Tempo",
+  "start": "15:00",
   "end": "16:00"
  },
  {
@@ -2954,13 +2968,6 @@
   "end": "18:30"
  },
  {
-  "artist": "Shai Space LDN Deep Listening Takeover SHAI SPACE LDN",
-  "day": "Sat",
-  "stage": "Once In A Blue Moon",
-  "start": "20:00",
-  "end": "23:00"
- },
- {
   "artist": "JOE MUGGS’ AMBIENT ZONE",
   "day": "Sat",
   "stage": "Once In A Blue Moon",
@@ -2973,6 +2980,13 @@
   "stage": "Once In A Blue Moon",
   "start": "23:00",
   "end": "01:00"
+ },
+ {
+  "artist": "Shai Space LDN Deep Listening Takeover SHAI SPACE LDN",
+  "day": "Sat",
+  "stage": "Once In A Blue Moon",
+  "start": "20:00",
+  "end": "23:00"
  },
  {
   "artist": "Jeet",
@@ -3710,6 +3724,13 @@
   "end": "16:00"
  },
  {
+  "artist": "Beyond the Algorithm with Wordplay Magazine",
+  "day": "Sun",
+  "stage": "Passenger Presents: Ground Tempo",
+  "start": "15:00",
+  "end": "16:00"
+ },
+ {
   "artist": "Mr Redley",
   "day": "Sun",
   "stage": "Passenger Presents: Ground Tempo",
@@ -3780,6 +3801,13 @@
   "end": "20:30"
  },
  {
+  "artist": "LA RUMBA",
+  "day": "Sun",
+  "stage": "Near Mint Record Store",
+  "start": "18:00",
+  "end": "19:30"
+ },
+ {
   "artist": "Aidy West",
   "day": "Sun",
   "stage": "Near Mint Record Store",
@@ -3827,13 +3855,6 @@
   "stage": "Near Mint Record Store",
   "start": "11:00",
   "end": "12:00"
- },
- {
-  "artist": "LA RUMBA",
-  "day": "Sun",
-  "stage": "Near Mint Record Signings",
-  "start": "18:00",
-  "end": "19:30"
  },
  {
   "artist": "E DOUBLE D",
