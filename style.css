@@ -467,6 +467,15 @@ nav.pagenav a.active {
   white-space: nowrap;
 }
 .btn:hover { border-color: var(--blue); color: var(--blue); }
+/* The SoundCloud app claims every soundcloud.com link (all three hosts publish
+   app-links for com.soundcloud.android) and opens its own search screen with an
+   empty box, so the button is useless on a phone. Hidden on touch devices only:
+   hover/pointer beats a width query here, because a narrow desktop window still
+   has a working browser. */
+@media (hover: none) and (pointer: coarse) {
+  .btn--sc { display: none; }
+}
+
 .btn--play {
   background: var(--sun);
   border-color: var(--sun);

@@ -164,7 +164,7 @@ def set_html(name, tag, day, time, stage, catmap):
     if verified:
         links += (f'<a class="btn btn--play" href="{esc(verified)}" target="_blank" rel="noopener">'
                   f'<span aria-hidden="true">&#9654;</span> Play mix</a>')
-    links += (f'<a class="btn" href="{esc(sc_search(name))}" target="_blank" rel="noopener">'
+    links += (f'<a class="btn btn--sc" href="{esc(sc_search(name))}" target="_blank" rel="noopener">'
               f'Search SoundCloud</a>')
     links += (f'<a class="btn" href="{esc(yt_search(name))}" target="_blank" rel="noopener">'
               f'Search YouTube</a>')
@@ -688,6 +688,15 @@ nav.pagenav a.active {
   white-space: nowrap;
 }
 .btn:hover { border-color: var(--blue); color: var(--blue); }
+/* The SoundCloud app claims every soundcloud.com link (all three hosts publish
+   app-links for com.soundcloud.android) and opens its own search screen with an
+   empty box, so the button is useless on a phone. Hidden on touch devices only:
+   hover/pointer beats a width query here, because a narrow desktop window still
+   has a working browser. */
+@media (hover: none) and (pointer: coarse) {
+  .btn--sc { display: none; }
+}
+
 .btn--play {
   background: var(--sun);
   border-color: var(--sun);
@@ -998,7 +1007,7 @@ def artist_page(name, tag, day, time, stage, list_page, list_label):
     if verified:
         links += (f'<a class="btn btn--play" href="{esc(verified)}" target="_blank" rel="noopener">'
                   f'<span aria-hidden="true">&#9654;</span> Play mix</a>')
-    links += (f'<a class="btn" href="{esc(sc_search(name))}" target="_blank" rel="noopener">'
+    links += (f'<a class="btn btn--sc" href="{esc(sc_search(name))}" target="_blank" rel="noopener">'
               f'Search SoundCloud</a>')
     links += (f'<a class="btn" href="{esc(yt_search(name))}" target="_blank" rel="noopener">'
               f'Search YouTube</a>')
