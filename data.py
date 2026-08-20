@@ -25,6 +25,15 @@ VERIFIED = {
     'Wheel Up': 'https://www.mixcloud.com/truthoughts/stay-at-home-sessions-wheelup/',
     'Esa': 'https://soundcloud.com/dkmntl/dekmantel-podcast-037-esa',
     'Juls': 'https://soundcloud.com/platform/juls-london',
+    'Lone': 'https://soundcloud.com/resident-advisor/ra420-lone',
+    'Kenny Dope': 'https://soundcloud.com/kenny-dope/kenny-dope-june-2014-15-house-mix',
+    'Bryan Gee': 'https://soundcloud.com/gbryan1/v-recordings-old-skool-mix-vol-1-mixed-by-b-ryan-gee',
+    'Mantra': 'https://soundcloud.com/mantra/rupture-with-mantra-the-lot',
+    'dBridge': 'https://www.mixcloud.com/dBridge/dbridge-spmc-live-at-sun-bass-2017/',
+    'Jamz Supernova': 'https://soundcloud.com/resident-advisor/ra748-jamz-supernova',
+    'Tama Sumo & Lakuti': 'https://soundcloud.com/resident-advisor/ra853-tama-sumo-lakuti',
+    'Palms Trax': 'https://soundcloud.com/platform/palms-trax-3',
+    'Luke Una': 'https://soundcloud.com/weoutherefestival/luke-una-live-from-we-out-here-2025',
 }
 
 # Blurbs written for this site, for acts the festival has not written up itself.

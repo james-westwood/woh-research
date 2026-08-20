@@ -135,6 +135,18 @@ def yt_search(name):
     return ("https://www.youtube.com/results?search_query="
             + quote(base_name(name) + ' dj mix'))
 
+def verified_for(name):
+    """The featured mix for an act, if we have one.
+
+    Keys in VERIFIED are the plain artist ("Calibre"), but a billing can carry a
+    guest ("Calibre ft SP:MC") or a suffix ("Blawan (Live)"). Strip the
+    parenthetical first, then fall back to base_name, which also drops
+    "ft/feat/b2b/presents/with ...". Without the fallback a mix can sit in
+    VERIFIED, resolve fine, and still never render a button.
+    """
+    plain = re.sub(r'\s*\(.*?\)', '', name).strip()
+    return VERIFIED.get(plain) or VERIFIED.get(base_name(name))
+
 DAYS = ['Thu', 'Fri', 'Sat', 'Sun']
 DAY_NAMES = {'Thu': 'Thu 20', 'Fri': 'Fri 21', 'Sat': 'Sat 22', 'Sun': 'Sun 23'}
 DAY_ORDER = {d: i for i, d in enumerate(DAYS)}
@@ -157,7 +169,7 @@ def running_order(items):
 
 def set_html(name, tag, day, time, stage, catmap):
     cats = categorize(tag, catmap)
-    verified = VERIFIED.get(re.sub(r'\s*\(.*?\)', '', name).strip())
+    verified = verified_for(name)
     start, _, end = time.partition('-')
 
     links = ''
@@ -1002,7 +1014,7 @@ def artist_page(name, tag, day, time, stage, list_page, list_label):
                    f'<span class="gig-time">{esc(start)}&#8211;{esc(end)}</span>'
                    f'<span class="gig-stage">{esc(stage)}</span></li></ol>')
 
-    verified = VERIFIED.get(re.sub(r'\s*\(.*?\)', '', name).strip())
+    verified = verified_for(name)
     links = ''
     if verified:
         links += (f'<a class="btn btn--play" href="{esc(verified)}" target="_blank" rel="noopener">'
